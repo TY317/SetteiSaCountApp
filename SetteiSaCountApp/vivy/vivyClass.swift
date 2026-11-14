@@ -299,18 +299,150 @@ class Vivy: ObservableObject {
 
 
 class VivyMemory1: ObservableObject {
+    @AppStorage("vivyAccelPromoteCountMiss1Memory1") var accelPromoteCountMiss1: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit1Memory1") var accelPromoteCountHit1: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum1Memory1") var accelPromoteCountSum1: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss2Memory1") var accelPromoteCountMiss2: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit2Memory1") var accelPromoteCountHit2: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum2Memory1") var accelPromoteCountSum2: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss3Memory1") var accelPromoteCountMiss3: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit3Memory1") var accelPromoteCountHit3: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum3Memory1") var accelPromoteCountSum3: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss4Memory1") var accelPromoteCountMiss4: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit4Memory1") var accelPromoteCountHit4: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum4Memory1") var accelPromoteCountSum4: Int = 0
+    @AppStorage("vivyWeakCherryGameNormalMemory1") var weakCherryGameNormal: Int = 0
+    @AppStorage("vivyWeakCherryCountNormalMemory1") var weakCherryCountNormal: Int = 0
+    @AppStorage("vivyWeakCherryGameHigh2Memory1") var weakCherryGameHigh2: Int = 0
+    @AppStorage("vivyWeakCherryCountHigh2Memory1") var weakCherryCountHigh2: Int = 0
+    @AppStorage("vivyWeakCherryGameHigh3Memory1") var weakCherryGameHigh3: Int = 0
+    @AppStorage("vivyWeakCherryCountHigh3Memory1") var weakCherryCountHigh3: Int = 0
+    @AppStorage("vivyPlayGameSumMemory1") var playGameSum: Int = 0
+    @AppStorage("vivyFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("vivyFirstHitInputModeMemory1") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("vivyManualNormalGameMemory1") var manualNormalGame: Int = 0
+    @AppStorage("vivyManualFirstHitCountAtMemory1") var manualFirstHitCountAt: Int = 0
+    @AppStorage("vivyScreenCount1Memory1") var screenCount1: Int = 0
+    @AppStorage("vivyScreenCount2Memory1") var screenCount2: Int = 0
+    @AppStorage("vivyScreenCount3Memory1") var screenCount3: Int = 0
+    @AppStorage("vivyScreenCount4Memory1") var screenCount4: Int = 0
+    @AppStorage("vivyScreenCount5Memory1") var screenCount5: Int = 0
+    @AppStorage("vivyScreenCount6Memory1") var screenCount6: Int = 0
+    @AppStorage("vivyScreenCount7Memory1") var screenCount7: Int = 0
+    @AppStorage("vivyScreenCount8Memory1") var screenCount8: Int = 0
+    @AppStorage("vivyScreenCount9Memory1") var screenCount9: Int = 0
+    @AppStorage("vivyScreenCountSumMemory1") var screenCountSum: Int = 0
+    @AppStorage("vivyCharaCount1Memory1") var charaCount1: Int = 0
+    @AppStorage("vivyCharaCount2Memory1") var charaCount2: Int = 0
+    @AppStorage("vivyCharaCount3Memory1") var charaCount3: Int = 0
+    @AppStorage("vivyCharaCount4Memory1") var charaCount4: Int = 0
+    @AppStorage("vivyCharaCount5Memory1") var charaCount5: Int = 0
+    @AppStorage("vivyCharaCount6Memory1") var charaCount6: Int = 0
+    @AppStorage("vivyCharaCountSumMemory1") var charaCountSum: Int = 0
+    @AppStorage("vivyEntryKindArrayKeyMemory1") var entryKindArrayData: Data?
+    @AppStorage("vivyGameArrayKeyMemory1") var gameArrayData: Data?
+    @AppStorage("vivyCenterArrayKeyMemory1") var centerArrayData: Data?
+    @AppStorage("vivyRightArrayKeyMemory1") var rightArrayData: Data?
     @AppStorage("vivyMemoMemory1") var memo = ""
     @AppStorage("vivyDateMemory1") var dateDouble = 0.0
 }
 
 
 class VivyMemory2: ObservableObject {
+    @AppStorage("vivyAccelPromoteCountMiss1Memory2") var accelPromoteCountMiss1: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit1Memory2") var accelPromoteCountHit1: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum1Memory2") var accelPromoteCountSum1: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss2Memory2") var accelPromoteCountMiss2: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit2Memory2") var accelPromoteCountHit2: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum2Memory2") var accelPromoteCountSum2: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss3Memory2") var accelPromoteCountMiss3: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit3Memory2") var accelPromoteCountHit3: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum3Memory2") var accelPromoteCountSum3: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss4Memory2") var accelPromoteCountMiss4: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit4Memory2") var accelPromoteCountHit4: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum4Memory2") var accelPromoteCountSum4: Int = 0
+    @AppStorage("vivyWeakCherryGameNormalMemory2") var weakCherryGameNormal: Int = 0
+    @AppStorage("vivyWeakCherryCountNormalMemory2") var weakCherryCountNormal: Int = 0
+    @AppStorage("vivyWeakCherryGameHigh2Memory2") var weakCherryGameHigh2: Int = 0
+    @AppStorage("vivyWeakCherryCountHigh2Memory2") var weakCherryCountHigh2: Int = 0
+    @AppStorage("vivyWeakCherryGameHigh3Memory2") var weakCherryGameHigh3: Int = 0
+    @AppStorage("vivyWeakCherryCountHigh3Memory2") var weakCherryCountHigh3: Int = 0
+    @AppStorage("vivyPlayGameSumMemory2") var playGameSum: Int = 0
+    @AppStorage("vivyFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("vivyFirstHitInputModeMemory2") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("vivyManualNormalGameMemory2") var manualNormalGame: Int = 0
+    @AppStorage("vivyManualFirstHitCountAtMemory2") var manualFirstHitCountAt: Int = 0
+    @AppStorage("vivyScreenCount1Memory2") var screenCount1: Int = 0
+    @AppStorage("vivyScreenCount2Memory2") var screenCount2: Int = 0
+    @AppStorage("vivyScreenCount3Memory2") var screenCount3: Int = 0
+    @AppStorage("vivyScreenCount4Memory2") var screenCount4: Int = 0
+    @AppStorage("vivyScreenCount5Memory2") var screenCount5: Int = 0
+    @AppStorage("vivyScreenCount6Memory2") var screenCount6: Int = 0
+    @AppStorage("vivyScreenCount7Memory2") var screenCount7: Int = 0
+    @AppStorage("vivyScreenCount8Memory2") var screenCount8: Int = 0
+    @AppStorage("vivyScreenCount9Memory2") var screenCount9: Int = 0
+    @AppStorage("vivyScreenCountSumMemory2") var screenCountSum: Int = 0
+    @AppStorage("vivyCharaCount1Memory2") var charaCount1: Int = 0
+    @AppStorage("vivyCharaCount2Memory2") var charaCount2: Int = 0
+    @AppStorage("vivyCharaCount3Memory2") var charaCount3: Int = 0
+    @AppStorage("vivyCharaCount4Memory2") var charaCount4: Int = 0
+    @AppStorage("vivyCharaCount5Memory2") var charaCount5: Int = 0
+    @AppStorage("vivyCharaCount6Memory2") var charaCount6: Int = 0
+    @AppStorage("vivyCharaCountSumMemory2") var charaCountSum: Int = 0
+    @AppStorage("vivyEntryKindArrayKeyMemory2") var entryKindArrayData: Data?
+    @AppStorage("vivyGameArrayKeyMemory2") var gameArrayData: Data?
+    @AppStorage("vivyCenterArrayKeyMemory2") var centerArrayData: Data?
+    @AppStorage("vivyRightArrayKeyMemory2") var rightArrayData: Data?
     @AppStorage("vivyMemoMemory2") var memo = ""
     @AppStorage("vivyDateMemory2") var dateDouble = 0.0
 }
 
 
 class VivyMemory3: ObservableObject {
+    @AppStorage("vivyAccelPromoteCountMiss1Memory3") var accelPromoteCountMiss1: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit1Memory3") var accelPromoteCountHit1: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum1Memory3") var accelPromoteCountSum1: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss2Memory3") var accelPromoteCountMiss2: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit2Memory3") var accelPromoteCountHit2: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum2Memory3") var accelPromoteCountSum2: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss3Memory3") var accelPromoteCountMiss3: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit3Memory3") var accelPromoteCountHit3: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum3Memory3") var accelPromoteCountSum3: Int = 0
+    @AppStorage("vivyAccelPromoteCountMiss4Memory3") var accelPromoteCountMiss4: Int = 0
+    @AppStorage("vivyAccelPromoteCountHit4Memory3") var accelPromoteCountHit4: Int = 0
+    @AppStorage("vivyAccelPromoteCountSum4Memory3") var accelPromoteCountSum4: Int = 0
+    @AppStorage("vivyWeakCherryGameNormalMemory3") var weakCherryGameNormal: Int = 0
+    @AppStorage("vivyWeakCherryCountNormalMemory3") var weakCherryCountNormal: Int = 0
+    @AppStorage("vivyWeakCherryGameHigh2Memory3") var weakCherryGameHigh2: Int = 0
+    @AppStorage("vivyWeakCherryCountHigh2Memory3") var weakCherryCountHigh2: Int = 0
+    @AppStorage("vivyWeakCherryGameHigh3Memory3") var weakCherryGameHigh3: Int = 0
+    @AppStorage("vivyWeakCherryCountHigh3Memory3") var weakCherryCountHigh3: Int = 0
+    @AppStorage("vivyPlayGameSumMemory3") var playGameSum: Int = 0
+    @AppStorage("vivyFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("vivyFirstHitInputModeMemory3") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("vivyManualNormalGameMemory3") var manualNormalGame: Int = 0
+    @AppStorage("vivyManualFirstHitCountAtMemory3") var manualFirstHitCountAt: Int = 0
+    @AppStorage("vivyScreenCount1Memory3") var screenCount1: Int = 0
+    @AppStorage("vivyScreenCount2Memory3") var screenCount2: Int = 0
+    @AppStorage("vivyScreenCount3Memory3") var screenCount3: Int = 0
+    @AppStorage("vivyScreenCount4Memory3") var screenCount4: Int = 0
+    @AppStorage("vivyScreenCount5Memory3") var screenCount5: Int = 0
+    @AppStorage("vivyScreenCount6Memory3") var screenCount6: Int = 0
+    @AppStorage("vivyScreenCount7Memory3") var screenCount7: Int = 0
+    @AppStorage("vivyScreenCount8Memory3") var screenCount8: Int = 0
+    @AppStorage("vivyScreenCount9Memory3") var screenCount9: Int = 0
+    @AppStorage("vivyScreenCountSumMemory3") var screenCountSum: Int = 0
+    @AppStorage("vivyCharaCount1Memory3") var charaCount1: Int = 0
+    @AppStorage("vivyCharaCount2Memory3") var charaCount2: Int = 0
+    @AppStorage("vivyCharaCount3Memory3") var charaCount3: Int = 0
+    @AppStorage("vivyCharaCount4Memory3") var charaCount4: Int = 0
+    @AppStorage("vivyCharaCount5Memory3") var charaCount5: Int = 0
+    @AppStorage("vivyCharaCount6Memory3") var charaCount6: Int = 0
+    @AppStorage("vivyCharaCountSumMemory3") var charaCountSum: Int = 0
+    @AppStorage("vivyEntryKindArrayKeyMemory3") var entryKindArrayData: Data?
+    @AppStorage("vivyGameArrayKeyMemory3") var gameArrayData: Data?
+    @AppStorage("vivyCenterArrayKeyMemory3") var centerArrayData: Data?
+    @AppStorage("vivyRightArrayKeyMemory3") var rightArrayData: Data?
     @AppStorage("vivyMemoMemory3") var memo = ""
     @AppStorage("vivyDateMemory3") var dateDouble = 0.0
 }

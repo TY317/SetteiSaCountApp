@@ -192,13 +192,142 @@ struct vivySubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
-
+        vivyMemory1.accelPromoteCountMiss1 = vivy.accelPromoteCountMiss1
+        vivyMemory1.accelPromoteCountHit1 = vivy.accelPromoteCountHit1
+        vivyMemory1.accelPromoteCountSum1 = vivy.accelPromoteCountSum1
+        vivyMemory1.accelPromoteCountMiss2 = vivy.accelPromoteCountMiss2
+        vivyMemory1.accelPromoteCountHit2 = vivy.accelPromoteCountHit2
+        vivyMemory1.accelPromoteCountSum2 = vivy.accelPromoteCountSum2
+        vivyMemory1.accelPromoteCountMiss3 = vivy.accelPromoteCountMiss3
+        vivyMemory1.accelPromoteCountHit3 = vivy.accelPromoteCountHit3
+        vivyMemory1.accelPromoteCountSum3 = vivy.accelPromoteCountSum3
+        vivyMemory1.accelPromoteCountMiss4 = vivy.accelPromoteCountMiss4
+        vivyMemory1.accelPromoteCountHit4 = vivy.accelPromoteCountHit4
+        vivyMemory1.accelPromoteCountSum4 = vivy.accelPromoteCountSum4
+        vivyMemory1.weakCherryGameNormal = vivy.weakCherryGameNormal
+        vivyMemory1.weakCherryCountNormal = vivy.weakCherryCountNormal
+        vivyMemory1.weakCherryGameHigh2 = vivy.weakCherryGameHigh2
+        vivyMemory1.weakCherryCountHigh2 = vivy.weakCherryCountHigh2
+        vivyMemory1.weakCherryGameHigh3 = vivy.weakCherryGameHigh3
+        vivyMemory1.weakCherryCountHigh3 = vivy.weakCherryCountHigh3
+        vivyMemory1.playGameSum = vivy.playGameSum
+        vivyMemory1.firstHitCountAt = vivy.firstHitCountAt
+        vivyMemory1.firstHitInputMode = vivy.firstHitInputMode
+        vivyMemory1.manualNormalGame = vivy.manualNormalGame
+        vivyMemory1.manualFirstHitCountAt = vivy.manualFirstHitCountAt
+        vivyMemory1.screenCount1 = vivy.screenCount1
+        vivyMemory1.screenCount2 = vivy.screenCount2
+        vivyMemory1.screenCount3 = vivy.screenCount3
+        vivyMemory1.screenCount4 = vivy.screenCount4
+        vivyMemory1.screenCount5 = vivy.screenCount5
+        vivyMemory1.screenCount6 = vivy.screenCount6
+        vivyMemory1.screenCount7 = vivy.screenCount7
+        vivyMemory1.screenCount8 = vivy.screenCount8
+        vivyMemory1.screenCount9 = vivy.screenCount9
+        vivyMemory1.screenCountSum = vivy.screenCountSum
+        vivyMemory1.charaCount1 = vivy.charaCount1
+        vivyMemory1.charaCount2 = vivy.charaCount2
+        vivyMemory1.charaCount3 = vivy.charaCount3
+        vivyMemory1.charaCount4 = vivy.charaCount4
+        vivyMemory1.charaCount5 = vivy.charaCount5
+        vivyMemory1.charaCount6 = vivy.charaCount6
+        vivyMemory1.charaCountSum = vivy.charaCountSum
+        vivyMemory1.entryKindArrayData = vivy.entryKindArrayData
+        vivyMemory1.gameArrayData = vivy.gameArrayData
+        vivyMemory1.centerArrayData = vivy.centerArrayData
+        vivyMemory1.rightArrayData = vivy.rightArrayData
     }
     func saveMemory2() {
-
+        vivyMemory2.accelPromoteCountMiss1 = vivy.accelPromoteCountMiss1
+        vivyMemory2.accelPromoteCountHit1 = vivy.accelPromoteCountHit1
+        vivyMemory2.accelPromoteCountSum1 = vivy.accelPromoteCountSum1
+        vivyMemory2.accelPromoteCountMiss2 = vivy.accelPromoteCountMiss2
+        vivyMemory2.accelPromoteCountHit2 = vivy.accelPromoteCountHit2
+        vivyMemory2.accelPromoteCountSum2 = vivy.accelPromoteCountSum2
+        vivyMemory2.accelPromoteCountMiss3 = vivy.accelPromoteCountMiss3
+        vivyMemory2.accelPromoteCountHit3 = vivy.accelPromoteCountHit3
+        vivyMemory2.accelPromoteCountSum3 = vivy.accelPromoteCountSum3
+        vivyMemory2.accelPromoteCountMiss4 = vivy.accelPromoteCountMiss4
+        vivyMemory2.accelPromoteCountHit4 = vivy.accelPromoteCountHit4
+        vivyMemory2.accelPromoteCountSum4 = vivy.accelPromoteCountSum4
+        vivyMemory2.weakCherryGameNormal = vivy.weakCherryGameNormal
+        vivyMemory2.weakCherryCountNormal = vivy.weakCherryCountNormal
+        vivyMemory2.weakCherryGameHigh2 = vivy.weakCherryGameHigh2
+        vivyMemory2.weakCherryCountHigh2 = vivy.weakCherryCountHigh2
+        vivyMemory2.weakCherryGameHigh3 = vivy.weakCherryGameHigh3
+        vivyMemory2.weakCherryCountHigh3 = vivy.weakCherryCountHigh3
+        vivyMemory2.playGameSum = vivy.playGameSum
+        vivyMemory2.firstHitCountAt = vivy.firstHitCountAt
+        vivyMemory2.firstHitInputMode = vivy.firstHitInputMode
+        vivyMemory2.manualNormalGame = vivy.manualNormalGame
+        vivyMemory2.manualFirstHitCountAt = vivy.manualFirstHitCountAt
+        vivyMemory2.screenCount1 = vivy.screenCount1
+        vivyMemory2.screenCount2 = vivy.screenCount2
+        vivyMemory2.screenCount3 = vivy.screenCount3
+        vivyMemory2.screenCount4 = vivy.screenCount4
+        vivyMemory2.screenCount5 = vivy.screenCount5
+        vivyMemory2.screenCount6 = vivy.screenCount6
+        vivyMemory2.screenCount7 = vivy.screenCount7
+        vivyMemory2.screenCount8 = vivy.screenCount8
+        vivyMemory2.screenCount9 = vivy.screenCount9
+        vivyMemory2.screenCountSum = vivy.screenCountSum
+        vivyMemory2.charaCount1 = vivy.charaCount1
+        vivyMemory2.charaCount2 = vivy.charaCount2
+        vivyMemory2.charaCount3 = vivy.charaCount3
+        vivyMemory2.charaCount4 = vivy.charaCount4
+        vivyMemory2.charaCount5 = vivy.charaCount5
+        vivyMemory2.charaCount6 = vivy.charaCount6
+        vivyMemory2.charaCountSum = vivy.charaCountSum
+        vivyMemory2.entryKindArrayData = vivy.entryKindArrayData
+        vivyMemory2.gameArrayData = vivy.gameArrayData
+        vivyMemory2.centerArrayData = vivy.centerArrayData
+        vivyMemory2.rightArrayData = vivy.rightArrayData
     }
     func saveMemory3() {
-
+        vivyMemory3.accelPromoteCountMiss1 = vivy.accelPromoteCountMiss1
+        vivyMemory3.accelPromoteCountHit1 = vivy.accelPromoteCountHit1
+        vivyMemory3.accelPromoteCountSum1 = vivy.accelPromoteCountSum1
+        vivyMemory3.accelPromoteCountMiss2 = vivy.accelPromoteCountMiss2
+        vivyMemory3.accelPromoteCountHit2 = vivy.accelPromoteCountHit2
+        vivyMemory3.accelPromoteCountSum2 = vivy.accelPromoteCountSum2
+        vivyMemory3.accelPromoteCountMiss3 = vivy.accelPromoteCountMiss3
+        vivyMemory3.accelPromoteCountHit3 = vivy.accelPromoteCountHit3
+        vivyMemory3.accelPromoteCountSum3 = vivy.accelPromoteCountSum3
+        vivyMemory3.accelPromoteCountMiss4 = vivy.accelPromoteCountMiss4
+        vivyMemory3.accelPromoteCountHit4 = vivy.accelPromoteCountHit4
+        vivyMemory3.accelPromoteCountSum4 = vivy.accelPromoteCountSum4
+        vivyMemory3.weakCherryGameNormal = vivy.weakCherryGameNormal
+        vivyMemory3.weakCherryCountNormal = vivy.weakCherryCountNormal
+        vivyMemory3.weakCherryGameHigh2 = vivy.weakCherryGameHigh2
+        vivyMemory3.weakCherryCountHigh2 = vivy.weakCherryCountHigh2
+        vivyMemory3.weakCherryGameHigh3 = vivy.weakCherryGameHigh3
+        vivyMemory3.weakCherryCountHigh3 = vivy.weakCherryCountHigh3
+        vivyMemory3.playGameSum = vivy.playGameSum
+        vivyMemory3.firstHitCountAt = vivy.firstHitCountAt
+        vivyMemory3.firstHitInputMode = vivy.firstHitInputMode
+        vivyMemory3.manualNormalGame = vivy.manualNormalGame
+        vivyMemory3.manualFirstHitCountAt = vivy.manualFirstHitCountAt
+        vivyMemory3.screenCount1 = vivy.screenCount1
+        vivyMemory3.screenCount2 = vivy.screenCount2
+        vivyMemory3.screenCount3 = vivy.screenCount3
+        vivyMemory3.screenCount4 = vivy.screenCount4
+        vivyMemory3.screenCount5 = vivy.screenCount5
+        vivyMemory3.screenCount6 = vivy.screenCount6
+        vivyMemory3.screenCount7 = vivy.screenCount7
+        vivyMemory3.screenCount8 = vivy.screenCount8
+        vivyMemory3.screenCount9 = vivy.screenCount9
+        vivyMemory3.screenCountSum = vivy.screenCountSum
+        vivyMemory3.charaCount1 = vivy.charaCount1
+        vivyMemory3.charaCount2 = vivy.charaCount2
+        vivyMemory3.charaCount3 = vivy.charaCount3
+        vivyMemory3.charaCount4 = vivy.charaCount4
+        vivyMemory3.charaCount5 = vivy.charaCount5
+        vivyMemory3.charaCount6 = vivy.charaCount6
+        vivyMemory3.charaCountSum = vivy.charaCountSum
+        vivyMemory3.entryKindArrayData = vivy.entryKindArrayData
+        vivyMemory3.gameArrayData = vivy.gameArrayData
+        vivyMemory3.centerArrayData = vivy.centerArrayData
+        vivyMemory3.rightArrayData = vivy.rightArrayData
     }
 }
 
@@ -230,13 +359,154 @@ struct vivySubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
-
+        vivy.accelPromoteCountMiss1 = vivyMemory1.accelPromoteCountMiss1
+        vivy.accelPromoteCountHit1 = vivyMemory1.accelPromoteCountHit1
+        vivy.accelPromoteCountSum1 = vivyMemory1.accelPromoteCountSum1
+        vivy.accelPromoteCountMiss2 = vivyMemory1.accelPromoteCountMiss2
+        vivy.accelPromoteCountHit2 = vivyMemory1.accelPromoteCountHit2
+        vivy.accelPromoteCountSum2 = vivyMemory1.accelPromoteCountSum2
+        vivy.accelPromoteCountMiss3 = vivyMemory1.accelPromoteCountMiss3
+        vivy.accelPromoteCountHit3 = vivyMemory1.accelPromoteCountHit3
+        vivy.accelPromoteCountSum3 = vivyMemory1.accelPromoteCountSum3
+        vivy.accelPromoteCountMiss4 = vivyMemory1.accelPromoteCountMiss4
+        vivy.accelPromoteCountHit4 = vivyMemory1.accelPromoteCountHit4
+        vivy.accelPromoteCountSum4 = vivyMemory1.accelPromoteCountSum4
+        vivy.weakCherryGameNormal = vivyMemory1.weakCherryGameNormal
+        vivy.weakCherryCountNormal = vivyMemory1.weakCherryCountNormal
+        vivy.weakCherryGameHigh2 = vivyMemory1.weakCherryGameHigh2
+        vivy.weakCherryCountHigh2 = vivyMemory1.weakCherryCountHigh2
+        vivy.weakCherryGameHigh3 = vivyMemory1.weakCherryGameHigh3
+        vivy.weakCherryCountHigh3 = vivyMemory1.weakCherryCountHigh3
+        vivy.playGameSum = vivyMemory1.playGameSum
+        vivy.firstHitCountAt = vivyMemory1.firstHitCountAt
+        vivy.firstHitInputMode = vivyMemory1.firstHitInputMode
+        vivy.manualNormalGame = vivyMemory1.manualNormalGame
+        vivy.manualFirstHitCountAt = vivyMemory1.manualFirstHitCountAt
+        vivy.screenCount1 = vivyMemory1.screenCount1
+        vivy.screenCount2 = vivyMemory1.screenCount2
+        vivy.screenCount3 = vivyMemory1.screenCount3
+        vivy.screenCount4 = vivyMemory1.screenCount4
+        vivy.screenCount5 = vivyMemory1.screenCount5
+        vivy.screenCount6 = vivyMemory1.screenCount6
+        vivy.screenCount7 = vivyMemory1.screenCount7
+        vivy.screenCount8 = vivyMemory1.screenCount8
+        vivy.screenCount9 = vivyMemory1.screenCount9
+        vivy.screenCountSum = vivyMemory1.screenCountSum
+        vivy.charaCount1 = vivyMemory1.charaCount1
+        vivy.charaCount2 = vivyMemory1.charaCount2
+        vivy.charaCount3 = vivyMemory1.charaCount3
+        vivy.charaCount4 = vivyMemory1.charaCount4
+        vivy.charaCount5 = vivyMemory1.charaCount5
+        vivy.charaCount6 = vivyMemory1.charaCount6
+        vivy.charaCountSum = vivyMemory1.charaCountSum
+        let entryKindArrayDecoded = decodeStringArray(from: vivyMemory1.entryKindArrayData)
+        saveArray(entryKindArrayDecoded, forKey: vivy.entryKindArrayKey)
+        let gameArrayDecoded = decodeIntArray(from: vivyMemory1.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: vivy.gameArrayKey)
+        let centerArrayDecoded = decodeStringArray(from: vivyMemory1.centerArrayData)
+        saveArray(centerArrayDecoded, forKey: vivy.centerArrayKey)
+        let rightArrayDecoded = decodeStringArray(from: vivyMemory1.rightArrayData)
+        saveArray(rightArrayDecoded, forKey: vivy.rightArrayKey)
     }
     func loadMemory2() {
-
+        vivy.accelPromoteCountMiss1 = vivyMemory2.accelPromoteCountMiss1
+        vivy.accelPromoteCountHit1 = vivyMemory2.accelPromoteCountHit1
+        vivy.accelPromoteCountSum1 = vivyMemory2.accelPromoteCountSum1
+        vivy.accelPromoteCountMiss2 = vivyMemory2.accelPromoteCountMiss2
+        vivy.accelPromoteCountHit2 = vivyMemory2.accelPromoteCountHit2
+        vivy.accelPromoteCountSum2 = vivyMemory2.accelPromoteCountSum2
+        vivy.accelPromoteCountMiss3 = vivyMemory2.accelPromoteCountMiss3
+        vivy.accelPromoteCountHit3 = vivyMemory2.accelPromoteCountHit3
+        vivy.accelPromoteCountSum3 = vivyMemory2.accelPromoteCountSum3
+        vivy.accelPromoteCountMiss4 = vivyMemory2.accelPromoteCountMiss4
+        vivy.accelPromoteCountHit4 = vivyMemory2.accelPromoteCountHit4
+        vivy.accelPromoteCountSum4 = vivyMemory2.accelPromoteCountSum4
+        vivy.weakCherryGameNormal = vivyMemory2.weakCherryGameNormal
+        vivy.weakCherryCountNormal = vivyMemory2.weakCherryCountNormal
+        vivy.weakCherryGameHigh2 = vivyMemory2.weakCherryGameHigh2
+        vivy.weakCherryCountHigh2 = vivyMemory2.weakCherryCountHigh2
+        vivy.weakCherryGameHigh3 = vivyMemory2.weakCherryGameHigh3
+        vivy.weakCherryCountHigh3 = vivyMemory2.weakCherryCountHigh3
+        vivy.playGameSum = vivyMemory2.playGameSum
+        vivy.firstHitCountAt = vivyMemory2.firstHitCountAt
+        vivy.firstHitInputMode = vivyMemory2.firstHitInputMode
+        vivy.manualNormalGame = vivyMemory2.manualNormalGame
+        vivy.manualFirstHitCountAt = vivyMemory2.manualFirstHitCountAt
+        vivy.screenCount1 = vivyMemory2.screenCount1
+        vivy.screenCount2 = vivyMemory2.screenCount2
+        vivy.screenCount3 = vivyMemory2.screenCount3
+        vivy.screenCount4 = vivyMemory2.screenCount4
+        vivy.screenCount5 = vivyMemory2.screenCount5
+        vivy.screenCount6 = vivyMemory2.screenCount6
+        vivy.screenCount7 = vivyMemory2.screenCount7
+        vivy.screenCount8 = vivyMemory2.screenCount8
+        vivy.screenCount9 = vivyMemory2.screenCount9
+        vivy.screenCountSum = vivyMemory2.screenCountSum
+        vivy.charaCount1 = vivyMemory2.charaCount1
+        vivy.charaCount2 = vivyMemory2.charaCount2
+        vivy.charaCount3 = vivyMemory2.charaCount3
+        vivy.charaCount4 = vivyMemory2.charaCount4
+        vivy.charaCount5 = vivyMemory2.charaCount5
+        vivy.charaCount6 = vivyMemory2.charaCount6
+        vivy.charaCountSum = vivyMemory2.charaCountSum
+        let entryKindArrayDecoded = decodeStringArray(from: vivyMemory2.entryKindArrayData)
+        saveArray(entryKindArrayDecoded, forKey: vivy.entryKindArrayKey)
+        let gameArrayDecoded = decodeIntArray(from: vivyMemory2.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: vivy.gameArrayKey)
+        let centerArrayDecoded = decodeStringArray(from: vivyMemory2.centerArrayData)
+        saveArray(centerArrayDecoded, forKey: vivy.centerArrayKey)
+        let rightArrayDecoded = decodeStringArray(from: vivyMemory2.rightArrayData)
+        saveArray(rightArrayDecoded, forKey: vivy.rightArrayKey)
     }
     func loadMemory3() {
-
+        vivy.accelPromoteCountMiss1 = vivyMemory3.accelPromoteCountMiss1
+        vivy.accelPromoteCountHit1 = vivyMemory3.accelPromoteCountHit1
+        vivy.accelPromoteCountSum1 = vivyMemory3.accelPromoteCountSum1
+        vivy.accelPromoteCountMiss2 = vivyMemory3.accelPromoteCountMiss2
+        vivy.accelPromoteCountHit2 = vivyMemory3.accelPromoteCountHit2
+        vivy.accelPromoteCountSum2 = vivyMemory3.accelPromoteCountSum2
+        vivy.accelPromoteCountMiss3 = vivyMemory3.accelPromoteCountMiss3
+        vivy.accelPromoteCountHit3 = vivyMemory3.accelPromoteCountHit3
+        vivy.accelPromoteCountSum3 = vivyMemory3.accelPromoteCountSum3
+        vivy.accelPromoteCountMiss4 = vivyMemory3.accelPromoteCountMiss4
+        vivy.accelPromoteCountHit4 = vivyMemory3.accelPromoteCountHit4
+        vivy.accelPromoteCountSum4 = vivyMemory3.accelPromoteCountSum4
+        vivy.weakCherryGameNormal = vivyMemory3.weakCherryGameNormal
+        vivy.weakCherryCountNormal = vivyMemory3.weakCherryCountNormal
+        vivy.weakCherryGameHigh2 = vivyMemory3.weakCherryGameHigh2
+        vivy.weakCherryCountHigh2 = vivyMemory3.weakCherryCountHigh2
+        vivy.weakCherryGameHigh3 = vivyMemory3.weakCherryGameHigh3
+        vivy.weakCherryCountHigh3 = vivyMemory3.weakCherryCountHigh3
+        vivy.playGameSum = vivyMemory3.playGameSum
+        vivy.firstHitCountAt = vivyMemory3.firstHitCountAt
+        vivy.firstHitInputMode = vivyMemory3.firstHitInputMode
+        vivy.manualNormalGame = vivyMemory3.manualNormalGame
+        vivy.manualFirstHitCountAt = vivyMemory3.manualFirstHitCountAt
+        vivy.screenCount1 = vivyMemory3.screenCount1
+        vivy.screenCount2 = vivyMemory3.screenCount2
+        vivy.screenCount3 = vivyMemory3.screenCount3
+        vivy.screenCount4 = vivyMemory3.screenCount4
+        vivy.screenCount5 = vivyMemory3.screenCount5
+        vivy.screenCount6 = vivyMemory3.screenCount6
+        vivy.screenCount7 = vivyMemory3.screenCount7
+        vivy.screenCount8 = vivyMemory3.screenCount8
+        vivy.screenCount9 = vivyMemory3.screenCount9
+        vivy.screenCountSum = vivyMemory3.screenCountSum
+        vivy.charaCount1 = vivyMemory3.charaCount1
+        vivy.charaCount2 = vivyMemory3.charaCount2
+        vivy.charaCount3 = vivyMemory3.charaCount3
+        vivy.charaCount4 = vivyMemory3.charaCount4
+        vivy.charaCount5 = vivyMemory3.charaCount5
+        vivy.charaCount6 = vivyMemory3.charaCount6
+        vivy.charaCountSum = vivyMemory3.charaCountSum
+        let entryKindArrayDecoded = decodeStringArray(from: vivyMemory3.entryKindArrayData)
+        saveArray(entryKindArrayDecoded, forKey: vivy.entryKindArrayKey)
+        let gameArrayDecoded = decodeIntArray(from: vivyMemory3.gameArrayData)
+        saveArray(gameArrayDecoded, forKey: vivy.gameArrayKey)
+        let centerArrayDecoded = decodeStringArray(from: vivyMemory3.centerArrayData)
+        saveArray(centerArrayDecoded, forKey: vivy.centerArrayKey)
+        let rightArrayDecoded = decodeStringArray(from: vivyMemory3.rightArrayData)
+        saveArray(rightArrayDecoded, forKey: vivy.rightArrayKey)
     }
 }
 
