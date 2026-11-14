@@ -42,7 +42,6 @@ class commonVar: ObservableObject {
             print("カウントアップなし")
         }
     }
-    @Environment(\.requestReview) var requestReview
     @AppStorage("commonTrackingRequested") var trackingRequested: Bool = false
     
     // ////////////////
