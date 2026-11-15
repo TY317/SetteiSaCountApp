@@ -15,8 +15,8 @@ class RewardedViewModel: NSObject, ObservableObject, FullScreenContentDelegate {
     func loadAd() async {
         do {
             rewardedAd = try await RewardedAd.load(
-//                with: "ca-app-pub-3940256099942544/1712485313",   // テスト用
-                with: "ca-app-pub-2339669527176370/8540059247",  // 本番用
+                with: "ca-app-pub-3940256099942544/1712485313",   // テスト用
+//                with: "ca-app-pub-2339669527176370/8540059247",  // 本番用
                 request: Request()
             )
             // [START set_the_delegate]
