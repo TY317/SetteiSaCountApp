@@ -1907,6 +1907,8 @@
 		D55FDB26F5B74881B8ADD39F /* kanokariViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096B2CFEE8A4293BDF4F8B5 /* kanokariViewFirstHit.swift */; };
 		D69049778E564BA08FD20595 /* ragnadorViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */; };
 		2CFFB4ABFC724FA5B6E8BCEA /* ragnadorViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA5812941C74002960A6DDA /* ragnadorViewBayes.swift */; };
+		1FF65F2041184C0C95907128 /* ragnadorTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF570492C247048D829312 /* ragnadorTableKoyakuPattern.swift */; };
+		0B574F397E3640AEB284EE7C /* ragnadorTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF570492C247048D829312 /* ragnadorTableKoyakuPattern.swift */; };
 		D6A1095D68B74416A8377CBF /* dropkickViewTuc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD7F9EFDB3D4DAAB137DC57 /* dropkickViewTuc.swift */; };
 		D6E1B47250A14FF4A1F9F7B7 /* sao2ViewMothers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B7676889241FBBE79A504 /* sao2ViewMothers.swift */; };
 		D971912E8F574DE29D99B70A /* ggoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D950ED3134EA183D9E2A2 /* ggoViewNormal.swift */; };
@@ -3537,6 +3539,7 @@
 		5B1AAD991C314E24ABAB974F /* tonskillViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillViewBayes.swift; sourceTree = "<group>"; };
 		5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewNormal.swift; sourceTree = "<group>"; };
 		4CA5812941C74002960A6DDA /* ragnadorViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewBayes.swift; sourceTree = "<group>"; };
+		48AF570492C247048D829312 /* ragnadorTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		5E124166C3E947F5B056B163 /* index2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewTop.swift; sourceTree = "<group>"; };
 		5E25A68D24298746A483D40B /* aobutaViewDuringSt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewDuringSt.swift; sourceTree = "<group>"; };
 		5E660CDF54824DF89AC6925D /* ggoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoViewScreen.swift; sourceTree = "<group>"; };
@@ -6655,6 +6658,7 @@
 				B8A446E7A330451799C054B1 /* ragnadorClass.swift */,
 				5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */,
 				4CA5812941C74002960A6DDA /* ragnadorViewBayes.swift */,
+				48AF570492C247048D829312 /* ragnadorTableKoyakuPattern.swift */,
 				4ECAB8DC4D98473FB0CB01DC /* ragnadorViewFirstHit.swift */,
 				985815556D744B2594C500EC /* ragnadorView95Ci.swift */,
 				AD5C684143A748C2ACDBD02C /* ragnadorAssets.xcassets */,
@@ -8445,6 +8449,7 @@
 				DACFAB6B64974BDD9A8D9AA9 /* ragnadorClass.swift in Sources */,
 				D69049778E564BA08FD20595 /* ragnadorViewNormal.swift in Sources */,
 				2CFFB4ABFC724FA5B6E8BCEA /* ragnadorViewBayes.swift in Sources */,
+				1FF65F2041184C0C95907128 /* ragnadorTableKoyakuPattern.swift in Sources */,
 				768D660630CD474DA1FB0EF5 /* ragnadorViewFirstHit.swift in Sources */,
 				155544146A984D5EB6ED9761 /* ragnadorView95Ci.swift in Sources */,
 				761787730B3D4B859952C8E5 /* vivyClass.swift in Sources */,
@@ -8750,6 +8755,7 @@
 				51FCA19B09FE48C8BF3EC86C /* seiyaTableKoyakuPattern.swift in Sources */,
 				FF7F906A5A4749F2A86F406A /* ggoTableKoyakuPattern.swift in Sources */,
 				4F6FA694593F42E39FFC6ACC /* vivyTableKoyakuPattern.swift in Sources */,
+				0B574F397E3640AEB284EE7C /* ragnadorTableKoyakuPattern.swift in Sources */,
 				B90DD7820A574DDB9BFE5647 /* ggoTableModeZone.swift in Sources */,
 				E18A60F1522847E49AA66E13 /* kanokariTableKoyakuPattern.swift in Sources */,
 				5C830D4D31A749CF92C26F8D /* gareiTableKoyakuPattern.swift in Sources */,
