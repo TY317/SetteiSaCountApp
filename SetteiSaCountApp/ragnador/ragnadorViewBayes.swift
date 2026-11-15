@@ -18,6 +18,7 @@ struct ragnadorViewBayes: View {
     @EnvironmentObject var common: commonVar
     @EnvironmentObject var bayes: Bayes
     @EnvironmentObject var viewModel: InterstitialViewModel
+    @State var weakCherryUpEnable: Bool = true
     @State var voiceEnable: Bool = true
     @State var guessCustom1: [Int] = []   // カスタム配分1用の入れ物
     @State var guessCustom2: [Int] = []   // カスタム配分2用の入れ物
@@ -45,6 +46,9 @@ struct ragnadorViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+
+                // 弱チェリーの状態昇格率
+                unitToggleWithQuestion(enable: self.$weakCherryUpEnable, title: "弱🍒での状態昇格率")
 
                 // エンディング
                 unitToggleWithQuestion(enable: self.$voiceEnable, title: "エンディング中ボイス") {
@@ -125,6 +129,22 @@ struct ragnadorViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
+        // 弱チェリーの状態昇格率（昇格なし・高確・超高確の3択。昇格なしは残余バケット）
+        var logPostWeakCherryUp: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.weakCherryUpEnable {
+            logPostWeakCherryUp = logPostPercentMulti(
+                countList: [
+                    ragnador.weakCherryUpCountHigh,
+                    ragnador.weakCherryUpCountSuperHigh,
+                ],
+                ratioList: [
+                    ragnador.ratioWeakCherryUpHigh,
+                    ragnador.ratioWeakCherryUpSuperHigh,
+                ],
+                bigNumber: ragnador.weakCherryCount
+            )
+        }
+
         // エンディング
         // 確定系（設定2・4・5以上／設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
         var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -183,6 +203,7 @@ struct ragnadorViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostWeakCherryUp,
             logPostVoice,
             logPostTrophy,
             logPostBefore,

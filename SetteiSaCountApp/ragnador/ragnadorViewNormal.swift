@@ -28,6 +28,107 @@ struct ragnadorViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ---- 弱チェリーの状態昇格率
+            Section {
+                HStack {
+                    // 高確以上
+                    unitResultRatioPercent2Line(
+                        title: "高確移行",
+                        count: $ragnador.weakCherryUpCountHighOver,
+                        bigNumber: $ragnador.weakCherryCount,
+                        numberofDicimal: 0,
+                        spacerBool: false,
+                    )
+                    // 超高確
+                    unitResultRatioPercent2Line(
+                        title: "超高確移行",
+                        count: $ragnador.weakCherryUpCountSuperHigh,
+                        bigNumber: $ragnador.weakCherryCount,
+                        numberofDicimal: 1,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+
+                // 参考情報）弱チェリーの状態昇格率
+                unitLinkButtonViewBuilder(sheetTitle: "弱チェリーでの状態昇格率") {
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "昇格なし",
+                            percentList: ragnador.ratioWeakCherryUpNone,
+                            numberofDicimal: 0,
+                        )
+                        unitTablePercent(
+                            columTitle: "高確",
+                            percentList: ragnador.ratioWeakCherryUpHigh,
+                            numberofDicimal: 0,
+                        )
+                        unitTablePercent(
+                            columTitle: "超高確",
+                            percentList: ragnador.ratioWeakCherryUpSuperHigh,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    Text("・通常状態での弱🍒がカウント対象")
+                        .foregroundStyle(Color.secondary)
+                        .font(.caption)
+                    // カウントボタン横並び
+                    HStack {
+                        // 弱チェリー
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "弱🍒成立",
+                            count: $ragnador.weakCherryCount,
+                            color: .personalSummerLightRed,
+                            minusBool: $ragnador.minusCheck) {
+                                ragnador.weakCherryUpSumFunc()
+                            }
+                        // 高確
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "高確",
+                            count: $ragnador.weakCherryUpCountHigh,
+                            color: .personalSummerLightGreen,
+                            minusBool: $ragnador.minusCheck) {
+                                ragnador.weakCherryUpSumFunc()
+                            }
+                        // 超高確
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "超高確",
+                            count: $ragnador.weakCherryUpCountSuperHigh,
+                            color: .personalSummerLightPurple,
+                            minusBool: $ragnador.minusCheck) {
+                                ragnador.weakCherryUpSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            ragnadorView95Ci(
+                                ragnador: ragnador,
+                                selection: 1,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        ragnadorViewBayes(
+                            ragnador: ragnador,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("弱チェリーでの状態昇格率")
+            }
+            
             // レア役
             Section {
                 // レア役停止系

@@ -14,7 +14,26 @@ class Ragnador: ObservableObject {
     // 通常時
     // -------
 
+    // 弱チェリーの状態昇格率
+    let ratioWeakCherryUpNone: [Double] = [40.6,37.5,34.4,25.0,19.5,17.2]
+    let ratioWeakCherryUpHigh: [Double] = [50.0,51.6,53.1,58.6,62.5,64.1]
+    let ratioWeakCherryUpSuperHigh: [Double] = [9.4,10.9,12.5,16.4,18.0,18.8]
+    // 高確以上（高確＋超高確）
+    let ratioWeakCherryUpHighOver: [Double] = [59.4,62.5,65.6,75.0,80.5,82.8]
+    @AppStorage("ragnadorWeakCherryCount") var weakCherryCount: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountHigh") var weakCherryUpCountHigh: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountSuperHigh") var weakCherryUpCountSuperHigh: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountHighOver") var weakCherryUpCountHighOver: Int = 0
+
+    func weakCherryUpSumFunc() {
+        weakCherryUpCountHighOver = weakCherryUpCountHigh + weakCherryUpCountSuperHigh
+    }
+
     func resetNormal() {
+        weakCherryCount = 0
+        weakCherryUpCountHigh = 0
+        weakCherryUpCountSuperHigh = 0
+        weakCherryUpCountHighOver = 0
         minusCheck = false
     }
 

@@ -14,6 +14,44 @@ struct ragnadorView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
+            // 弱🍒 高確以上への昇格率
+            unitListSection95Ci(
+                grafTitle: "弱🍒 高確への昇格率",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ragnador.weakCherryUpCountHighOver,
+                        bigNumber: $ragnador.weakCherryCount,
+                        setting1Percent: ragnador.ratioWeakCherryUpHighOver[0],
+                        setting2Percent: ragnador.ratioWeakCherryUpHighOver[1],
+                        setting3Percent: ragnador.ratioWeakCherryUpHighOver[2],
+                        setting4Percent: ragnador.ratioWeakCherryUpHighOver[3],
+                        setting5Percent: ragnador.ratioWeakCherryUpHighOver[4],
+                        setting6Percent: ragnador.ratioWeakCherryUpHighOver[5]
+                    )
+                )
+            )
+            .tag(1)
+
+            // 弱🍒 超高確への昇格率
+            unitListSection95Ci(
+                grafTitle: "弱🍒 超高確への昇格率",
+                titleFont: .title2,
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ragnador.weakCherryUpCountSuperHigh,
+                        bigNumber: $ragnador.weakCherryCount,
+                        setting1Percent: ragnador.ratioWeakCherryUpSuperHigh[0],
+                        setting2Percent: ragnador.ratioWeakCherryUpSuperHigh[1],
+                        setting3Percent: ragnador.ratioWeakCherryUpSuperHigh[2],
+                        setting4Percent: ragnador.ratioWeakCherryUpSuperHigh[3],
+                        setting5Percent: ragnador.ratioWeakCherryUpSuperHigh[4],
+                        setting6Percent: ragnador.ratioWeakCherryUpSuperHigh[5]
+                    )
+                )
+            )
+            .tag(2)
+
             // 回数
 //            unitListSection95Ci(
 //                grafTitle: "回数",
