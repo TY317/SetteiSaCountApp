@@ -1728,6 +1728,7 @@
 		14B67A130FCF4A4F858D7C34 /* goeva2TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A48ADEDB9A45F99DFE9833 /* goeva2TableKoyakuPattern.swift */; };
 		1525199CC4D74BB7A30EC7EC /* seiyaViewDuringAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4474E6681383403F8EAFFA2A /* seiyaViewDuringAt.swift */; };
 		154935E26E904F8AAE8B5C25 /* kerottoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9716DE9D34B64DF89FDD50BF /* kerottoViewNormal.swift */; };
+		155544146A984D5EB6ED9761 /* ragnadorView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985815556D744B2594C500EC /* ragnadorView95Ci.swift */; };
 		16489CB1D1B24C89929E2C9C /* mhrsbView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367A025987D242469AF4EBA5 /* mhrsbView95Ci.swift */; };
 		178F392F3F27489E910EE627 /* mhrsbViewBzScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3A4703E0CA40C3B6DC9F05 /* mhrsbViewBzScenario.swift */; };
 		183798F8CD68439CBB566B07 /* kerottoViewReg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA01361766B404EB2925B1B /* kerottoViewReg.swift */; };
@@ -1758,6 +1759,7 @@
 		3E8CDA9286E84077A19B1AF5 /* dropkickViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D7F93B2D714914852F51A8 /* dropkickViewBayes.swift */; };
 		3F15C1583170408BA94FAE76 /* ggoView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C56D76CBA54FDF84A39D93 /* ggoView95Ci.swift */; };
 		40387CB75A769021DCC65CC7 /* aobutaViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DAB13A9FFC6458A670A415 /* aobutaViewCz.swift */; };
+		40E8A58289804A689511E75A /* ragnadorViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB685E300D3D4C1CA685AA20 /* ragnadorViewTop.swift */; };
 		41BE4DD3F5984CC086AD0E28 /* streetFighter6ViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDCB026C5E425BAD79031F /* streetFighter6ViewTop.swift */; };
 		43F7F923DEF8498B86B8F31C /* kanokariTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72A898802746AEA3CB5B0A /* kanokariTableKoyakuPattern.swift */; };
 		442C3827C83C45ED9DB05F04 /* index2ViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2072FB4B7D4AA68845BAF4 /* index2ViewBayes.swift */; };
@@ -1801,6 +1803,7 @@
 		74B9E83ADFCF4118A332B3D8 /* goeva2ViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6985A04E9EA84FC0B7F4FAF4 /* goeva2ViewEnding.swift */; };
 		761787730B3D4B859952C8E5 /* vivyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94EBCEF8C554DD99283940B /* vivyClass.swift */; };
 		76469C4312CC466C89D1FE17 /* vivyAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB7FC96D0D0E49B4856FB19F /* vivyAssets.xcassets */; };
+		768D660630CD474DA1FB0EF5 /* ragnadorViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECAB8DC4D98473FB0CB01DC /* ragnadorViewFirstHit.swift */; };
 		7753D68957D84C03858B8B3A /* streetFighter6ViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAB5D25992349E69FABD717 /* streetFighter6ViewNormal.swift */; };
 		78836B58FAAB4306B3E44131 /* dropkickViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155CE16AC81480FB2B6F7B7 /* dropkickViewScreen.swift */; };
 		79593AE27382412CB89E7556 /* kerottoViewBonusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F5127185694EB38D1C85B8 /* kerottoViewBonusScreen.swift */; };
@@ -1813,6 +1816,7 @@
 		7E59082364A8FF479F4CE753 /* aobutaViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F4D812E251AD545E16F7F7 /* aobutaViewTop.swift */; };
 		7E873BB412E8442B84284B0A /* ggoViewTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7622D713164DF6A8932C3C /* ggoViewTop.swift */; };
 		7E88AB46530449468E035F20 /* ricoricoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17252422CEB3472BAB9A7FB3 /* ricoricoClass.swift */; };
+		801F8F37D0804F5290530425 /* ragnadorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD5C684143A748C2ACDBD02C /* ragnadorAssets.xcassets */; };
 		80FBF76392B7478CA54358FB /* tonskillViewCz.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8126E7CDD64843BC6486CA /* tonskillViewCz.swift */; };
 		819787A1149745F482FF0612 /* worldDaiStarViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F60BD585E74493E9AC277EE /* worldDaiStarViewEnding.swift */; };
 		81F715EE58F24EED929BC16F /* worldDaiStarView95Ci.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62005F7FEE64F9AA6C77A74 /* worldDaiStarView95Ci.swift */; };
@@ -1901,10 +1905,12 @@
 		D25E217B3F744E64934B275F /* streetFighter6Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55795DD6C0EF4F8FB30A0F5A /* streetFighter6Class.swift */; };
 		D2D23C4A63F3409F9DF4FA66 /* juoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB1A0EBE274D059C3C549C /* juoViewFirstHit.swift */; };
 		D55FDB26F5B74881B8ADD39F /* kanokariViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096B2CFEE8A4293BDF4F8B5 /* kanokariViewFirstHit.swift */; };
+		D69049778E564BA08FD20595 /* ragnadorViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */; };
 		D6A1095D68B74416A8377CBF /* dropkickViewTuc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD7F9EFDB3D4DAAB137DC57 /* dropkickViewTuc.swift */; };
 		D6E1B47250A14FF4A1F9F7B7 /* sao2ViewMothers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B7676889241FBBE79A504 /* sao2ViewMothers.swift */; };
 		D971912E8F574DE29D99B70A /* ggoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D950ED3134EA183D9E2A2 /* ggoViewNormal.swift */; };
 		DA1F2FF6A9F24E0F8ED856D4 /* seiyaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C877F695C7D4E06B4AE1884 /* seiyaClass.swift */; };
+		DACFAB6B64974BDD9A8D9AA9 /* ragnadorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A446E7A330451799C054B1 /* ragnadorClass.swift */; };
 		DAD45DD83F6B4457854B7280 /* streetFighter6TableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F6AC2A718745E9A5FC01DE /* streetFighter6TableKoyakuPattern.swift */; };
 		DCB0B1BB6B4B405085DC7894 /* unitTablePointIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9FA5DE221443AAF9F8E24 /* unitTablePointIndex.swift */; };
 		DCFF353A26D843F2A98FA770 /* juoAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C9315F2E08B410A9763ADD5 /* juoAssets.xcassets */; };
@@ -3514,6 +3520,7 @@
 		45FF5ADAD69848C0802913E1 /* ggoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoClass.swift; sourceTree = "<group>"; };
 		4C877F695C7D4E06B4AE1884 /* seiyaClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaClass.swift; sourceTree = "<group>"; };
 		4E3C72C6932E489C9EAC136F /* tonskillAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = tonskillAssets.xcassets; sourceTree = "<group>"; };
+		4ECAB8DC4D98473FB0CB01DC /* ragnadorViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewFirstHit.swift; sourceTree = "<group>"; };
 		4EE65812F9744D7398275DA1 /* seiyaTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		5040F498C664405EAAA291C9 /* worldDaiStarViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarViewBayes.swift; sourceTree = "<group>"; };
 		50A9BB840DC54F9B91BE4187 /* dropkickTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dropkickTableKoyakuPattern.swift; sourceTree = "<group>"; };
@@ -3527,6 +3534,7 @@
 		592C2CDDE1FB44C19632763F /* streetFighter6Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = streetFighter6Assets.xcassets; sourceTree = "<group>"; };
 		5AC125F76EA9406099372856 /* streetFighter6TableFirstRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streetFighter6TableFirstRank.swift; sourceTree = "<group>"; };
 		5B1AAD991C314E24ABAB974F /* tonskillViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillViewBayes.swift; sourceTree = "<group>"; };
+		5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewNormal.swift; sourceTree = "<group>"; };
 		5E124166C3E947F5B056B163 /* index2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewTop.swift; sourceTree = "<group>"; };
 		5E25A68D24298746A483D40B /* aobutaViewDuringSt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewDuringSt.swift; sourceTree = "<group>"; };
 		5E660CDF54824DF89AC6925D /* ggoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoViewScreen.swift; sourceTree = "<group>"; };
@@ -3578,6 +3586,7 @@
 		9716DE9D34B64DF89FDD50BF /* kerottoViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewNormal.swift; sourceTree = "<group>"; };
 		97C7E241D73C4ECE8F973A53 /* index2ViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewFirstHit.swift; sourceTree = "<group>"; };
 		982F0C74C8774E68B38F89BE /* yajikitaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaViewNormal.swift; sourceTree = "<group>"; };
+		985815556D744B2594C500EC /* ragnadorView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorView95Ci.swift; sourceTree = "<group>"; };
 		98B7C2047FE548D79754C8CB /* goeva2View95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goeva2View95Ci.swift; sourceTree = "<group>"; };
 		9AE82618305844A5BBF533CE /* kerottoViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kerottoViewTop.swift; sourceTree = "<group>"; };
 		9C26DCA76DBC4306A862BA30 /* tonskillViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillViewEnding.swift; sourceTree = "<group>"; };
@@ -3596,6 +3605,7 @@
 		A9189A68B84A4F299705886C /* tonskillTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		A9641C946BE8478DB94A7866 /* goeva2ViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goeva2ViewScreen.swift; sourceTree = "<group>"; };
 		AB88009D68D34A6F81F5474B /* mhrsbViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbViewTop.swift; sourceTree = "<group>"; };
+		AD5C684143A748C2ACDBD02C /* ragnadorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ragnadorAssets.xcassets; sourceTree = "<group>"; };
 		AE612F9BAA0C478AB1DCD675 /* kanokariView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kanokariView95Ci.swift; sourceTree = "<group>"; };
 		AF508CCF4C7F448082EAE74F /* worldDaiStarViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarViewTop.swift; sourceTree = "<group>"; };
 		AFB9AA080A514E1BAFB4933B /* gareiClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gareiClass.swift; sourceTree = "<group>"; };
@@ -3604,6 +3614,7 @@
 		B0E18B0C4BCC4C8799FE73A9 /* tonskillView95Ci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillView95Ci.swift; sourceTree = "<group>"; };
 		B5221948E6C8B5A9E4E1B05B /* streetFighter6ViewContinue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streetFighter6ViewContinue.swift; sourceTree = "<group>"; };
 		B847CF4B0B7B4B76B7847712 /* mhrsbViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mhrsbViewEnding.swift; sourceTree = "<group>"; };
+		B8A446E7A330451799C054B1 /* ragnadorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorClass.swift; sourceTree = "<group>"; };
 		B94EBCEF8C554DD99283940B /* vivyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vivyClass.swift; sourceTree = "<group>"; };
 		B9FB1A0EBE274D059C3C549C /* juoViewFirstHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = juoViewFirstHit.swift; sourceTree = "<group>"; };
 		BA0C6E9545DC41D7B28FA99D /* worldDaiStarClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldDaiStarClass.swift; sourceTree = "<group>"; };
@@ -3639,6 +3650,7 @@
 		D6F8172C006149E1A7A1DA00 /* yajikitaTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		D83F6013FDA4427FB1147E19 /* seiyaViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seiyaViewNormal.swift; sourceTree = "<group>"; };
 		D8C5CF5629E846B19274200D /* rioAceViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rioAceViewEnding.swift; sourceTree = "<group>"; };
+		DB685E300D3D4C1CA685AA20 /* ragnadorViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewTop.swift; sourceTree = "<group>"; };
 		DB72A898802746AEA3CB5B0A /* kanokariTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kanokariTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		DC36AA46292140D59344EEF9 /* ggoTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		DEB4C919C7B64CFF975CF67F /* index2TableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2TableKoyakuPattern.swift; sourceTree = "<group>"; };
@@ -4692,6 +4704,7 @@
 				0F9A79852E48AD1300D996CA /* InterstitialViewModelClass.swift */,
 				0F45A5E92F07CAD10022E355 /* rewardViewModelClass.swift */,
 				0F80310E2C625060001F008E /* Common */,
+				C885AD68900842D496BF91E5 /* ragnador */,
 				2C8C6CA36319448495DC56DD /* ggo */,
 				AB082389336840FA8EE708F1 /* vivy */,
 				ECF9153155B442F28EAA9367 /* seiya */,
@@ -6633,6 +6646,19 @@
 			path = mhrsb;
 			sourceTree = "<group>";
 		};
+		C885AD68900842D496BF91E5 /* ragnador */ = {
+			isa = PBXGroup;
+			children = (
+				DB685E300D3D4C1CA685AA20 /* ragnadorViewTop.swift */,
+				B8A446E7A330451799C054B1 /* ragnadorClass.swift */,
+				5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */,
+				4ECAB8DC4D98473FB0CB01DC /* ragnadorViewFirstHit.swift */,
+				985815556D744B2594C500EC /* ragnadorView95Ci.swift */,
+				AD5C684143A748C2ACDBD02C /* ragnadorAssets.xcassets */,
+			);
+			path = ragnador;
+			sourceTree = "<group>";
+		};
 		D64145FF7FA54147AB5807D3 /* streetFighter6 */ = {
 			isa = PBXGroup;
 			children = (
@@ -6851,6 +6877,7 @@
 				D0DC0383874945F89A54ADDA /* seiyaAssets.xcassets in Resources */,
 				9116C5B36C2F481481FCC264 /* ggoAssets.xcassets in Resources */,
 				76469C4312CC466C89D1FE17 /* vivyAssets.xcassets in Resources */,
+				801F8F37D0804F5290530425 /* ragnadorAssets.xcassets in Resources */,
 				B68F961B0AFE46BEA2845E86 /* gareiAssets.xcassets in Resources */,
 				A4BF1A7D1D3E49CA8D451870 /* tonskillAssets.xcassets in Resources */,
 				BBF633134E164339BD13A37E /* yajikitaAssets.xcassets in Resources */,
@@ -8411,6 +8438,11 @@
 				9495380BB3894DFE9BF6C803 /* ggoViewDuringHighSt.swift in Sources */,
 				3F15C1583170408BA94FAE76 /* ggoView95Ci.swift in Sources */,
 				50705A3186D2410A811E2C25 /* vivyViewTop.swift in Sources */,
+				40E8A58289804A689511E75A /* ragnadorViewTop.swift in Sources */,
+				DACFAB6B64974BDD9A8D9AA9 /* ragnadorClass.swift in Sources */,
+				D69049778E564BA08FD20595 /* ragnadorViewNormal.swift in Sources */,
+				768D660630CD474DA1FB0EF5 /* ragnadorViewFirstHit.swift in Sources */,
+				155544146A984D5EB6ED9761 /* ragnadorView95Ci.swift in Sources */,
 				761787730B3D4B859952C8E5 /* vivyClass.swift in Sources */,
 				BFE1BEF8C69441FE833568B2 /* vivyViewNormal.swift in Sources */,
 				099C285A44FE4914AB667CD3 /* vivyViewBayes.swift in Sources */,
