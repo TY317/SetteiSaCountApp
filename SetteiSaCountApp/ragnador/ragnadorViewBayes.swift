@@ -18,6 +18,7 @@ struct ragnadorViewBayes: View {
     @EnvironmentObject var common: commonVar
     @EnvironmentObject var bayes: Bayes
     @EnvironmentObject var viewModel: InterstitialViewModel
+    @State var voiceEnable: Bool = true
     @State var guessCustom1: [Int] = []   // カスタム配分1用の入れ物
     @State var guessCustom2: [Int] = []   // カスタム配分2用の入れ物
     @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
@@ -44,6 +45,14 @@ struct ragnadorViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+
+                // エンディング
+                unitToggleWithQuestion(enable: self.$voiceEnable, title: "エンディング中ボイス") {
+                    unitExView5body2image(
+                        title: "エンディング中ボイス",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
 
                 // トロフィー
                 DisclosureGroup("ユニバプレート") {
@@ -116,6 +125,27 @@ struct ragnadorViewBayes: View {
     private func bayesRatio() -> [Double] {
         // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
 
+        // エンディング
+        // 確定系（設定2・4・5以上／設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.voiceEnable {
+            logPostVoice = logPostPercentMulti(
+                countList: [
+                    ragnador.voiceCount5,
+                    ragnador.voiceCount6,
+                    ragnador.voiceCount7,
+                    ragnador.voiceCount8,
+                ],
+                ratioList: [
+                    ragnador.ratioVoiceOver2,
+                    ragnador.ratioVoiceOver4,
+                    ragnador.ratioVoiceOver5,
+                    ragnador.ratioVoiceOver6,
+                ],
+                bigNumber: ragnador.voiceCountSum
+            )
+        }
+
         // トロフィー
         var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.over2Check {
@@ -153,6 +183,7 @@ struct ragnadorViewBayes: View {
 
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
+            logPostVoice,
             logPostTrophy,
             logPostBefore,
         ])

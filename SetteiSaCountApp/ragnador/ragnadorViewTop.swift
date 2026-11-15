@@ -53,6 +53,17 @@ struct ragnadorViewTop: View {
                         )
                     }
 
+                    // エンディング
+                    NavigationLink(destination: ragnadorViewEnding(
+                        ragnador: ragnador,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "flag.pattern.checkered",
+                            textBody: "エンディング",
+                            badgeStatus: common.ragnadorMenuEndingBadge,
+                        )
+                    }
+
                     // トロフィー
                     NavigationLink(destination: commonViewUniversalPlate()) {
                         unitLabelMenu(
