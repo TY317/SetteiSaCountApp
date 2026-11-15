@@ -29,11 +29,62 @@ class Ragnador: ObservableObject {
         weakCherryUpCountHighOver = weakCherryUpCountHigh + weakCherryUpCountSuperHigh
     }
 
+    // レア役からのCZ・AT当選率（設定差のあるものだけカウント）
+    // 通常状態
+    let ratioRareCzNormalChance: [Double] = [19.9,21.1,22.3,23.4,23.4,23.4]
+    let ratioRareCzNormalKyo: [Double] = [32.8,35.2,37.5,43.0,43.0,43.0]
+    let ratioRareAtNormalSuika: [Double] = [0.4,0.4,0.4,0.8,1.2,1.2]
+    let ratioRareAtNormalChance: [Double] = [0.4,0.4,0.4,0.8,1.2,1.2]
+    let ratioRareAtNormalKyo: [Double] = [0.4,0.4,0.8,1.6,2.0,2.3]
+    let ratioRareAtNormalGoku: [Double] = [0.4,0.4,0.4,0.8,1.2,1.2]
+    // 高確
+    let ratioRareCzHighChance: [Double] = [39.8,41.4,43.0,54.7,54.7,54.7]
+    let ratioRareCzHighKyo: [Double] = [65.6,66.4,68.8,73.4,75.0,76.6]
+    let ratioRareAtHighSuika: [Double] = [0.4,0.4,0.4,0.8,1.2,1.2]
+    let ratioRareAtHighChance: [Double] = [0.4,0.4,0.4,0.8,1.2,1.2]
+    let ratioRareAtHighKyo: [Double] = [0.4,0.4,0.8,1.6,2.0,2.3]
+    @AppStorage("ragnadorRareCountNormalSuika") var rareCountNormalSuika: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalSuika") var rareAtCountNormalSuika: Int = 0
+    @AppStorage("ragnadorRareCountNormalChance") var rareCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareCzCountNormalChance") var rareCzCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalChance") var rareAtCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareCountNormalKyo") var rareCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareCzCountNormalKyo") var rareCzCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalKyo") var rareAtCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareCountNormalGoku") var rareCountNormalGoku: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalGoku") var rareAtCountNormalGoku: Int = 0
+    @AppStorage("ragnadorRareCountHighSuika") var rareCountHighSuika: Int = 0
+    @AppStorage("ragnadorRareAtCountHighSuika") var rareAtCountHighSuika: Int = 0
+    @AppStorage("ragnadorRareCountHighChance") var rareCountHighChance: Int = 0
+    @AppStorage("ragnadorRareCzCountHighChance") var rareCzCountHighChance: Int = 0
+    @AppStorage("ragnadorRareAtCountHighChance") var rareAtCountHighChance: Int = 0
+    @AppStorage("ragnadorRareCountHighKyo") var rareCountHighKyo: Int = 0
+    @AppStorage("ragnadorRareCzCountHighKyo") var rareCzCountHighKyo: Int = 0
+    @AppStorage("ragnadorRareAtCountHighKyo") var rareAtCountHighKyo: Int = 0
+
     func resetNormal() {
         weakCherryCount = 0
         weakCherryUpCountHigh = 0
         weakCherryUpCountSuperHigh = 0
         weakCherryUpCountHighOver = 0
+        rareCountNormalSuika = 0
+        rareAtCountNormalSuika = 0
+        rareCountNormalChance = 0
+        rareCzCountNormalChance = 0
+        rareAtCountNormalChance = 0
+        rareCountNormalKyo = 0
+        rareCzCountNormalKyo = 0
+        rareAtCountNormalKyo = 0
+        rareCountNormalGoku = 0
+        rareAtCountNormalGoku = 0
+        rareCountHighSuika = 0
+        rareAtCountHighSuika = 0
+        rareCountHighChance = 0
+        rareCzCountHighChance = 0
+        rareAtCountHighChance = 0
+        rareCountHighKyo = 0
+        rareCzCountHighKyo = 0
+        rareAtCountHighKyo = 0
         minusCheck = false
     }
 

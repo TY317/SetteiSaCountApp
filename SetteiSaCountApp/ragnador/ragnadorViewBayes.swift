@@ -19,6 +19,7 @@ struct ragnadorViewBayes: View {
     @EnvironmentObject var bayes: Bayes
     @EnvironmentObject var viewModel: InterstitialViewModel
     @State var weakCherryUpEnable: Bool = true
+    @State var rareHitEnable: Bool = true
     @State var voiceEnable: Bool = true
     @State var guessCustom1: [Int] = []   // カスタム配分1用の入れ物
     @State var guessCustom2: [Int] = []   // カスタム配分2用の入れ物
@@ -49,6 +50,9 @@ struct ragnadorViewBayes: View {
 
                 // 弱チェリーの状態昇格率
                 unitToggleWithQuestion(enable: self.$weakCherryUpEnable, title: "弱🍒での状態昇格率")
+
+                // レア役からのCZ・AT当選率
+                unitToggleWithQuestion(enable: self.$rareHitEnable, title: "レア役からのCZ・AT当選率")
 
                 // エンディング
                 unitToggleWithQuestion(enable: self.$voiceEnable, title: "エンディング中ボイス") {
@@ -145,6 +149,70 @@ struct ragnadorViewBayes: View {
             )
         }
 
+        // レア役からのCZ・AT当選率
+        // CZ・ATが両方カウント対象の役は「CZ／AT／どちらでもない」の多項、ATだけの役（🍉・通常の極チャンス目）は二項
+        var logPostRareHit: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareHitEnable {
+            // 通常状態
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentBino(
+                    ratio: ragnador.ratioRareAtNormalSuika,
+                    Count: ragnador.rareAtCountNormalSuika,
+                    bigNumber: ragnador.rareCountNormalSuika
+                ),
+            ])
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentMulti(
+                    countList: [ragnador.rareCzCountNormalChance, ragnador.rareAtCountNormalChance],
+                    ratioList: [ragnador.ratioRareCzNormalChance, ragnador.ratioRareAtNormalChance],
+                    bigNumber: ragnador.rareCountNormalChance
+                ),
+            ])
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentMulti(
+                    countList: [ragnador.rareCzCountNormalKyo, ragnador.rareAtCountNormalKyo],
+                    ratioList: [ragnador.ratioRareCzNormalKyo, ragnador.ratioRareAtNormalKyo],
+                    bigNumber: ragnador.rareCountNormalKyo
+                ),
+            ])
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentBino(
+                    ratio: ragnador.ratioRareAtNormalGoku,
+                    Count: ragnador.rareAtCountNormalGoku,
+                    bigNumber: ragnador.rareCountNormalGoku
+                ),
+            ])
+            // 高確
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentBino(
+                    ratio: ragnador.ratioRareAtHighSuika,
+                    Count: ragnador.rareAtCountHighSuika,
+                    bigNumber: ragnador.rareCountHighSuika
+                ),
+            ])
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentMulti(
+                    countList: [ragnador.rareCzCountHighChance, ragnador.rareAtCountHighChance],
+                    ratioList: [ragnador.ratioRareCzHighChance, ragnador.ratioRareAtHighChance],
+                    bigNumber: ragnador.rareCountHighChance
+                ),
+            ])
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentMulti(
+                    countList: [ragnador.rareCzCountHighKyo, ragnador.rareAtCountHighKyo],
+                    ratioList: [ragnador.ratioRareCzHighKyo, ragnador.ratioRareAtHighKyo],
+                    bigNumber: ragnador.rareCountHighKyo
+                ),
+            ])
+        }
+
         // エンディング
         // 確定系（設定2・4・5以上／設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
         var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -204,6 +272,7 @@ struct ragnadorViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostWeakCherryUp,
+            logPostRareHit,
             logPostVoice,
             logPostTrophy,
             logPostBefore,
