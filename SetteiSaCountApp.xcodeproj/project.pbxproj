@@ -1906,6 +1906,7 @@
 		D2D23C4A63F3409F9DF4FA66 /* juoViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB1A0EBE274D059C3C549C /* juoViewFirstHit.swift */; };
 		D55FDB26F5B74881B8ADD39F /* kanokariViewFirstHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B096B2CFEE8A4293BDF4F8B5 /* kanokariViewFirstHit.swift */; };
 		D69049778E564BA08FD20595 /* ragnadorViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */; };
+		2CFFB4ABFC724FA5B6E8BCEA /* ragnadorViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA5812941C74002960A6DDA /* ragnadorViewBayes.swift */; };
 		D6A1095D68B74416A8377CBF /* dropkickViewTuc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD7F9EFDB3D4DAAB137DC57 /* dropkickViewTuc.swift */; };
 		D6E1B47250A14FF4A1F9F7B7 /* sao2ViewMothers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B7676889241FBBE79A504 /* sao2ViewMothers.swift */; };
 		D971912E8F574DE29D99B70A /* ggoViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D950ED3134EA183D9E2A2 /* ggoViewNormal.swift */; };
@@ -3535,6 +3536,7 @@
 		5AC125F76EA9406099372856 /* streetFighter6TableFirstRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = streetFighter6TableFirstRank.swift; sourceTree = "<group>"; };
 		5B1AAD991C314E24ABAB974F /* tonskillViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillViewBayes.swift; sourceTree = "<group>"; };
 		5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewNormal.swift; sourceTree = "<group>"; };
+		4CA5812941C74002960A6DDA /* ragnadorViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewBayes.swift; sourceTree = "<group>"; };
 		5E124166C3E947F5B056B163 /* index2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewTop.swift; sourceTree = "<group>"; };
 		5E25A68D24298746A483D40B /* aobutaViewDuringSt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewDuringSt.swift; sourceTree = "<group>"; };
 		5E660CDF54824DF89AC6925D /* ggoViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ggoViewScreen.swift; sourceTree = "<group>"; };
@@ -6652,6 +6654,7 @@
 				DB685E300D3D4C1CA685AA20 /* ragnadorViewTop.swift */,
 				B8A446E7A330451799C054B1 /* ragnadorClass.swift */,
 				5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */,
+				4CA5812941C74002960A6DDA /* ragnadorViewBayes.swift */,
 				4ECAB8DC4D98473FB0CB01DC /* ragnadorViewFirstHit.swift */,
 				985815556D744B2594C500EC /* ragnadorView95Ci.swift */,
 				AD5C684143A748C2ACDBD02C /* ragnadorAssets.xcassets */,
@@ -8441,6 +8444,7 @@
 				40E8A58289804A689511E75A /* ragnadorViewTop.swift in Sources */,
 				DACFAB6B64974BDD9A8D9AA9 /* ragnadorClass.swift in Sources */,
 				D69049778E564BA08FD20595 /* ragnadorViewNormal.swift in Sources */,
+				2CFFB4ABFC724FA5B6E8BCEA /* ragnadorViewBayes.swift in Sources */,
 				768D660630CD474DA1FB0EF5 /* ragnadorViewFirstHit.swift in Sources */,
 				155544146A984D5EB6ED9761 /* ragnadorView95Ci.swift in Sources */,
 				761787730B3D4B859952C8E5 /* vivyClass.swift in Sources */,
