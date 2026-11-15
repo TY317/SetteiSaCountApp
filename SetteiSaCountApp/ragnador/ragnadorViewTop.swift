@@ -53,6 +53,17 @@ struct ragnadorViewTop: View {
                         )
                     }
 
+                    // CZ,AT終了時のボイス
+                    NavigationLink(destination: ragnadorViewEndVoice(
+                        ragnador: ragnador,
+                    )) {
+                        unitLabelMenu(
+                            imageSystemName: "message.fill",
+                            textBody: "CZ,AT終了時のボイス",
+                            badgeStatus: common.ragnadorMenuEndVoiceBadge,
+                        )
+                    }
+
                     // エンディング
                     NavigationLink(destination: ragnadorViewEnding(
                         ragnador: ragnador,

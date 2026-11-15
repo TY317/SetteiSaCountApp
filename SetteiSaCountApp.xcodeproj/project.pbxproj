@@ -1908,6 +1908,7 @@
 		D69049778E564BA08FD20595 /* ragnadorViewNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */; };
 		2CFFB4ABFC724FA5B6E8BCEA /* ragnadorViewBayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA5812941C74002960A6DDA /* ragnadorViewBayes.swift */; };
 		5733DFA88E7A465F83F26A3F /* ragnadorViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E753BBE250466BAE59451C /* ragnadorViewEnding.swift */; };
+		3D4B05E31555497D9DEA515E /* ragnadorViewEndVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AA36ECEBD429C8552DFFE /* ragnadorViewEndVoice.swift */; };
 		1FF65F2041184C0C95907128 /* ragnadorTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF570492C247048D829312 /* ragnadorTableKoyakuPattern.swift */; };
 		0B574F397E3640AEB284EE7C /* ragnadorTableKoyakuPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF570492C247048D829312 /* ragnadorTableKoyakuPattern.swift */; };
 		D6A1095D68B74416A8377CBF /* dropkickViewTuc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD7F9EFDB3D4DAAB137DC57 /* dropkickViewTuc.swift */; };
@@ -3541,6 +3542,7 @@
 		5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewNormal.swift; sourceTree = "<group>"; };
 		4CA5812941C74002960A6DDA /* ragnadorViewBayes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewBayes.swift; sourceTree = "<group>"; };
 		82E753BBE250466BAE59451C /* ragnadorViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewEnding.swift; sourceTree = "<group>"; };
+		A59AA36ECEBD429C8552DFFE /* ragnadorViewEndVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorViewEndVoice.swift; sourceTree = "<group>"; };
 		48AF570492C247048D829312 /* ragnadorTableKoyakuPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragnadorTableKoyakuPattern.swift; sourceTree = "<group>"; };
 		5E124166C3E947F5B056B163 /* index2ViewTop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = index2ViewTop.swift; sourceTree = "<group>"; };
 		5E25A68D24298746A483D40B /* aobutaViewDuringSt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aobutaViewDuringSt.swift; sourceTree = "<group>"; };
@@ -6661,6 +6663,7 @@
 				5C623B9F83D04229B823F0B8 /* ragnadorViewNormal.swift */,
 				4CA5812941C74002960A6DDA /* ragnadorViewBayes.swift */,
 				82E753BBE250466BAE59451C /* ragnadorViewEnding.swift */,
+				A59AA36ECEBD429C8552DFFE /* ragnadorViewEndVoice.swift */,
 				48AF570492C247048D829312 /* ragnadorTableKoyakuPattern.swift */,
 				4ECAB8DC4D98473FB0CB01DC /* ragnadorViewFirstHit.swift */,
 				985815556D744B2594C500EC /* ragnadorView95Ci.swift */,
@@ -8453,6 +8456,7 @@
 				D69049778E564BA08FD20595 /* ragnadorViewNormal.swift in Sources */,
 				2CFFB4ABFC724FA5B6E8BCEA /* ragnadorViewBayes.swift in Sources */,
 				5733DFA88E7A465F83F26A3F /* ragnadorViewEnding.swift in Sources */,
+				3D4B05E31555497D9DEA515E /* ragnadorViewEndVoice.swift in Sources */,
 				1FF65F2041184C0C95907128 /* ragnadorTableKoyakuPattern.swift in Sources */,
 				768D660630CD474DA1FB0EF5 /* ragnadorViewFirstHit.swift in Sources */,
 				155544146A984D5EB6ED9761 /* ragnadorView95Ci.swift in Sources */,

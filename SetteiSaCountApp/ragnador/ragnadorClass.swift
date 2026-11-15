@@ -69,6 +69,31 @@ class Ragnador: ObservableObject {
         minusCheck = false
     }
 
+    // -------
+    // CZ,AT終了時のボイス
+    // -------
+    // ボイスは9種類あるが、カウントは示唆の分類ごと（1:デフォルト 2:テーブル示唆 3:高設定示唆）にまとめる
+    @AppStorage("ragnadorEndVoiceCount1") var endVoiceCount1: Int = 0
+    @AppStorage("ragnadorEndVoiceCount2") var endVoiceCount2: Int = 0
+    @AppStorage("ragnadorEndVoiceCount3") var endVoiceCount3: Int = 0
+    @AppStorage("ragnadorEndVoiceCountSum") var endVoiceCountSum: Int = 0
+
+    func endVoiceSumFunc() {
+        endVoiceCountSum = countSum(
+            endVoiceCount1,
+            endVoiceCount2,
+            endVoiceCount3,
+        )
+    }
+
+    func resetEndVoice() {
+        endVoiceCount1 = 0
+        endVoiceCount2 = 0
+        endVoiceCount3 = 0
+        endVoiceCountSum = 0
+        minusCheck = false
+    }
+
     // -----------
     // 共通
     // -----------
@@ -80,6 +105,7 @@ class Ragnador: ObservableObject {
         resetNormal()
         resetFirstHit()
         resetVoice()
+        resetEndVoice()
     }
 }
 

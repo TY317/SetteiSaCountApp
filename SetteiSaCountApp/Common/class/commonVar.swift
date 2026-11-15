@@ -389,6 +389,7 @@ class commonVar: ObservableObject {
     @AppStorage("ragnadorMenuBayesBadge") var ragnadorMenuBayesBadge: String = "none"
     @AppStorage("ragnadorMenuScreenBadge") var ragnadorMenuScreenBadge: String = "none"
     @AppStorage("ragnadorMenuEndingBadge") var ragnadorMenuEndingBadge: String = "none"
+    @AppStorage("ragnadorMenuEndVoiceBadge") var ragnadorMenuEndVoiceBadge: String = "none"
 
     // ---- Vivy
     @AppStorage("vivyMenuNormalBadge") var vivyMenuNormalBadge: String = "none"
