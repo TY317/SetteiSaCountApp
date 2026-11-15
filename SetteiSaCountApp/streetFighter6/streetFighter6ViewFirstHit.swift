@@ -142,7 +142,6 @@ struct streetFighter6ViewFirstHit: View {
                 unitLinkButtonViewBuilder(sheetTitle: "通常時スマホ演出での示唆") {
                     streetFighter6TableSmartPhone()
                 }
-                .popoverTip(tipVer450StreetFighter6SmartPhone())
                 
                 DisclosureGroup {
                     // 注意書き

@@ -92,7 +92,6 @@ struct sao2ViewFirstHit: View {
                         }
                     }
                 }
-                .popoverTip(tipVer450Sao2Chokugeki())
                 
                 // //// 95%信頼区間グラフへのリンク
                 unitNaviLink95Ci(

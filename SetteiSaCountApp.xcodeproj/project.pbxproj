@@ -447,7 +447,6 @@
 		0F5C50862C9B0709007A4E60 /* symphoViewVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C50852C9B0709007A4E60 /* symphoViewVoice.swift */; };
 		0F5C50882C9C4BD7007A4E60 /* symphoViewGearv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C50872C9C4BD6007A4E60 /* symphoViewGearv.swift */; };
 		0F5C508A2C9C528C007A4E60 /* symphoViewEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C50892C9C528C007A4E60 /* symphoViewEnding.swift */; };
-		0F5D71273031E0040023B7CC /* ver450.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D71263031E0040023B7CC /* ver450.swift */; };
 		0F5D7153303293540023B7CC /* yajikitaTableMileTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D7152303293540023B7CC /* yajikitaTableMileTable.swift */; };
 		0F5D71543032935B0023B7CC /* yajikitaTableMileTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D7152303293540023B7CC /* yajikitaTableMileTable.swift */; };
 		0F5D71563032964E0023B7CC /* yajikitaTableModeMoveRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D71553032964E0023B7CC /* yajikitaTableModeMoveRatio.swift */; };
@@ -2287,7 +2286,6 @@
 		0F5C50852C9B0709007A4E60 /* symphoViewVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewVoice.swift; sourceTree = "<group>"; };
 		0F5C50872C9C4BD6007A4E60 /* symphoViewGearv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewGearv.swift; sourceTree = "<group>"; };
 		0F5C50892C9C528C007A4E60 /* symphoViewEnding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = symphoViewEnding.swift; sourceTree = "<group>"; };
-		0F5D71263031E0040023B7CC /* ver450.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ver450.swift; sourceTree = "<group>"; };
 		0F5D7152303293540023B7CC /* yajikitaTableMileTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaTableMileTable.swift; sourceTree = "<group>"; };
 		0F5D71553032964E0023B7CC /* yajikitaTableModeMoveRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yajikitaTableModeMoveRatio.swift; sourceTree = "<group>"; };
 		0F5D719E3032D4EF0023B7CC /* tonskillTableCzPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tonskillTableCzPoint.swift; sourceTree = "<group>"; };
@@ -5279,7 +5277,6 @@
 				0FB9CA7B2DD97641009FC6AF /* ver320Class.swift */,
 				0F8955252E7EDBE000539050 /* commonVar.swift */,
 				0FA63D502F8D0BA60006E8F7 /* ver3240.swift */,
-				0F5D71263031E0040023B7CC /* ver450.swift */,
 				0F62B8143044128A00B1B6D3 /* ver460.swift */,
 				0F6790AD305633B400373AD5 /* ver470.swift */,
 				0FBA31FC3061EC300088936F /* ver480.swift */,
@@ -7023,7 +7020,6 @@
 				0FFAB86B2E71A17700296A4F /* funky2ViewBayes.swift in Sources */,
 				0FEC7A362FD5179C00B4D0D7 /* sao2ViewDuringAt.swift in Sources */,
 				0F25FC602CD3A8390005F971 /* rezero2ViewSnowball.swift in Sources */,
-				0F5D71273031E0040023B7CC /* ver450.swift in Sources */,
 				0FDB728D2EE504D70075B6A4 /* bakemonoViewFirstHit.swift in Sources */,
 				0FD357B72DAFCC440069BD1A /* yoshimuneClass.swift in Sources */,
 				0F0DE8152EDC342B00D85BCA /* bakemonoClass.swift in Sources */,

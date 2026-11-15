@@ -67,7 +67,6 @@ struct karakuri2ViewDuringAt: View {
                         )
                     }
                 }
-                .popoverTip(tipVer450Karakuri2StartStage())
 
                 // カウント
                 DisclosureGroup {
@@ -142,7 +141,6 @@ struct karakuri2ViewDuringAt: View {
                 unitLinkButtonViewBuilder(sheetTitle: "キャラシナリオ振分け") {
                     karakuri2TableCharaSenario(karakuri2: karakuri2)
                 }
-                .popoverTip(tipVer450Karakuri2CharaSenario())
                 
                 DisclosureGroup {
                     // サークルピッカー

@@ -35,7 +35,6 @@ struct tonskillViewCz: View {
                 unitLinkButtonViewBuilder(sheetTitle: "失敗時のゴブリン残数での示唆") {
                     tonskillTableGoblinRemain()
                 }
-                .popoverTip(tipVer450TonskillGoblinRemain())
             } header: {
                 Text("スイCZ")
             }
