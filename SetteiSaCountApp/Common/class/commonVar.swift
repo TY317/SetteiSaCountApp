@@ -912,6 +912,9 @@ class commonVar: ObservableObject {
                 // ここに更新時のバッジ付与等を後で追記
                 machines.updateMachineBadgeStatus(id: "5079", newStatus: "new")
                 machines.updateMachineIsUnlocked(id: "5079", isUnlocked: false)
+                // ゴジエヴァ2
+                machines.updateMachineBadgeStatus(id: "5119", newStatus: "update")
+                goeva2MenuEndingBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

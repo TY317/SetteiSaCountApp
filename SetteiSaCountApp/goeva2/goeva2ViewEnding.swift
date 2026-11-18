@@ -91,6 +91,14 @@ struct goeva2ViewEnding: View {
             } header: {
                 Text("カウント結果")
             }
+
+            // エピソード映像
+            Section {
+                Text("エピソード種類や順番で設定を示唆している可能性あり")
+                    .popoverTip(tipVer4120Goeva2Episode())
+            } header: {
+                Text("エピソード映像")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.goeva2MenuEndingBadge)

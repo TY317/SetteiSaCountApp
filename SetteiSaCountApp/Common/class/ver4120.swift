@@ -40,3 +40,19 @@ struct tipVer4120: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：ゴジエヴァ2 エンディング エピソード映像
+//////////////////
+struct tipVer4120Goeva2Episode: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("エピソード映像の情報を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
