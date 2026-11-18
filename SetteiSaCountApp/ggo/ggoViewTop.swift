@@ -196,6 +196,10 @@ struct ggoSubViewSaveMemory: View {
         ggoMemory1.modeHeavenCountMiss = ggo.modeHeavenCountMiss
         ggoMemory1.modeHeavenCountHit = ggo.modeHeavenCountHit
         ggoMemory1.modeHeavenCountSum = ggo.modeHeavenCountSum
+        ggoMemory1.grenadeCountBonus = ggo.grenadeCountBonus
+        ggoMemory1.grenadeCountYesMam = ggo.grenadeCountYesMam
+        ggoMemory1.grenadeCountOther = ggo.grenadeCountOther
+        ggoMemory1.grenadeCountSum = ggo.grenadeCountSum
         ggoMemory1.playGameSum = ggo.playGameSum
         ggoMemory1.firstHitCountBonus = ggo.firstHitCountBonus
         ggoMemory1.firstHitCountSt = ggo.firstHitCountSt
@@ -213,6 +217,10 @@ struct ggoSubViewSaveMemory: View {
         ggoMemory2.modeHeavenCountMiss = ggo.modeHeavenCountMiss
         ggoMemory2.modeHeavenCountHit = ggo.modeHeavenCountHit
         ggoMemory2.modeHeavenCountSum = ggo.modeHeavenCountSum
+        ggoMemory2.grenadeCountBonus = ggo.grenadeCountBonus
+        ggoMemory2.grenadeCountYesMam = ggo.grenadeCountYesMam
+        ggoMemory2.grenadeCountOther = ggo.grenadeCountOther
+        ggoMemory2.grenadeCountSum = ggo.grenadeCountSum
         ggoMemory2.playGameSum = ggo.playGameSum
         ggoMemory2.firstHitCountBonus = ggo.firstHitCountBonus
         ggoMemory2.firstHitCountSt = ggo.firstHitCountSt
@@ -230,6 +238,10 @@ struct ggoSubViewSaveMemory: View {
         ggoMemory3.modeHeavenCountMiss = ggo.modeHeavenCountMiss
         ggoMemory3.modeHeavenCountHit = ggo.modeHeavenCountHit
         ggoMemory3.modeHeavenCountSum = ggo.modeHeavenCountSum
+        ggoMemory3.grenadeCountBonus = ggo.grenadeCountBonus
+        ggoMemory3.grenadeCountYesMam = ggo.grenadeCountYesMam
+        ggoMemory3.grenadeCountOther = ggo.grenadeCountOther
+        ggoMemory3.grenadeCountSum = ggo.grenadeCountSum
         ggoMemory3.playGameSum = ggo.playGameSum
         ggoMemory3.firstHitCountBonus = ggo.firstHitCountBonus
         ggoMemory3.firstHitCountSt = ggo.firstHitCountSt
@@ -276,6 +288,10 @@ struct ggoSubViewLoadMemory: View {
         ggo.modeHeavenCountMiss = ggoMemory1.modeHeavenCountMiss
         ggo.modeHeavenCountHit = ggoMemory1.modeHeavenCountHit
         ggo.modeHeavenCountSum = ggoMemory1.modeHeavenCountSum
+        ggo.grenadeCountBonus = ggoMemory1.grenadeCountBonus
+        ggo.grenadeCountYesMam = ggoMemory1.grenadeCountYesMam
+        ggo.grenadeCountOther = ggoMemory1.grenadeCountOther
+        ggo.grenadeCountSum = ggoMemory1.grenadeCountSum
         ggo.playGameSum = ggoMemory1.playGameSum
         ggo.firstHitCountBonus = ggoMemory1.firstHitCountBonus
         ggo.firstHitCountSt = ggoMemory1.firstHitCountSt
@@ -296,6 +312,10 @@ struct ggoSubViewLoadMemory: View {
         ggo.modeHeavenCountMiss = ggoMemory2.modeHeavenCountMiss
         ggo.modeHeavenCountHit = ggoMemory2.modeHeavenCountHit
         ggo.modeHeavenCountSum = ggoMemory2.modeHeavenCountSum
+        ggo.grenadeCountBonus = ggoMemory2.grenadeCountBonus
+        ggo.grenadeCountYesMam = ggoMemory2.grenadeCountYesMam
+        ggo.grenadeCountOther = ggoMemory2.grenadeCountOther
+        ggo.grenadeCountSum = ggoMemory2.grenadeCountSum
         ggo.playGameSum = ggoMemory2.playGameSum
         ggo.firstHitCountBonus = ggoMemory2.firstHitCountBonus
         ggo.firstHitCountSt = ggoMemory2.firstHitCountSt
@@ -316,6 +336,10 @@ struct ggoSubViewLoadMemory: View {
         ggo.modeHeavenCountMiss = ggoMemory3.modeHeavenCountMiss
         ggo.modeHeavenCountHit = ggoMemory3.modeHeavenCountHit
         ggo.modeHeavenCountSum = ggoMemory3.modeHeavenCountSum
+        ggo.grenadeCountBonus = ggoMemory3.grenadeCountBonus
+        ggo.grenadeCountYesMam = ggoMemory3.grenadeCountYesMam
+        ggo.grenadeCountOther = ggoMemory3.grenadeCountOther
+        ggo.grenadeCountSum = ggoMemory3.grenadeCountSum
         ggo.playGameSum = ggoMemory3.playGameSum
         ggo.firstHitCountBonus = ggoMemory3.firstHitCountBonus
         ggo.firstHitCountSt = ggoMemory3.firstHitCountSt

@@ -53,7 +53,7 @@ struct ggoViewNormal: View {
                 .popoverTip(tipVer4120GgoGrenade())
 
                 // 参考情報）グレネードジャッジ報酬
-                unitLinkButtonViewBuilder(sheetTitle: "グレネードジャッジ報酬") {
+                unitLinkButtonViewBuilder(sheetTitle: "報酬振分け") {
                     Text("・報酬獲得時の振り分けに設定差あり")
                     HStack(spacing: 0) {
                         unitTableSettingIndex()

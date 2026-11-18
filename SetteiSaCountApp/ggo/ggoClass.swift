@@ -189,6 +189,10 @@ class GgoMemory1: ObservableObject {
     @AppStorage("ggoGameArrayKeyMemory1") var gameArrayData: Data?
     @AppStorage("ggoBonusKindArrayKeyMemory1") var bonusKindArrayData: Data?
     @AppStorage("ggoStResultArrayKeyMemory1") var stResultArrayData: Data?
+    @AppStorage("ggoGrenadeCountBonusMemory1") var grenadeCountBonus: Int = 0
+    @AppStorage("ggoGrenadeCountYesMamMemory1") var grenadeCountYesMam: Int = 0
+    @AppStorage("ggoGrenadeCountOtherMemory1") var grenadeCountOther: Int = 0
+    @AppStorage("ggoGrenadeCountSumMemory1") var grenadeCountSum: Int = 0
     @AppStorage("ggoMemoMemory1") var memo = ""
     @AppStorage("ggoDateMemory1") var dateDouble = 0.0
 }
@@ -210,6 +214,10 @@ class GgoMemory2: ObservableObject {
     @AppStorage("ggoGameArrayKeyMemory2") var gameArrayData: Data?
     @AppStorage("ggoBonusKindArrayKeyMemory2") var bonusKindArrayData: Data?
     @AppStorage("ggoStResultArrayKeyMemory2") var stResultArrayData: Data?
+    @AppStorage("ggoGrenadeCountBonusMemory2") var grenadeCountBonus: Int = 0
+    @AppStorage("ggoGrenadeCountYesMamMemory2") var grenadeCountYesMam: Int = 0
+    @AppStorage("ggoGrenadeCountOtherMemory2") var grenadeCountOther: Int = 0
+    @AppStorage("ggoGrenadeCountSumMemory2") var grenadeCountSum: Int = 0
     @AppStorage("ggoMemoMemory2") var memo = ""
     @AppStorage("ggoDateMemory2") var dateDouble = 0.0
 }
@@ -231,6 +239,10 @@ class GgoMemory3: ObservableObject {
     @AppStorage("ggoGameArrayKeyMemory3") var gameArrayData: Data?
     @AppStorage("ggoBonusKindArrayKeyMemory3") var bonusKindArrayData: Data?
     @AppStorage("ggoStResultArrayKeyMemory3") var stResultArrayData: Data?
+    @AppStorage("ggoGrenadeCountBonusMemory3") var grenadeCountBonus: Int = 0
+    @AppStorage("ggoGrenadeCountYesMamMemory3") var grenadeCountYesMam: Int = 0
+    @AppStorage("ggoGrenadeCountOtherMemory3") var grenadeCountOther: Int = 0
+    @AppStorage("ggoGrenadeCountSumMemory3") var grenadeCountSum: Int = 0
     @AppStorage("ggoMemoMemory3") var memo = ""
     @AppStorage("ggoDateMemory3") var dateDouble = 0.0
 }
