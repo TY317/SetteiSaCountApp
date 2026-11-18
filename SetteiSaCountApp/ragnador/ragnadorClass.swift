@@ -556,18 +556,159 @@ class Ragnador: ObservableObject {
 
 
 class RagnadorMemory1: ObservableObject {
+    @AppStorage("ragnadorWeakCherryCountMemory1") var weakCherryCount: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountHighMemory1") var weakCherryUpCountHigh: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountSuperHighMemory1") var weakCherryUpCountSuperHigh: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountHighOverMemory1") var weakCherryUpCountHighOver: Int = 0
+    @AppStorage("ragnadorRareCountNormalSuikaMemory1") var rareCountNormalSuika: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalSuikaMemory1") var rareAtCountNormalSuika: Int = 0
+    @AppStorage("ragnadorRareCountNormalChanceMemory1") var rareCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareCzCountNormalChanceMemory1") var rareCzCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalChanceMemory1") var rareAtCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareCountNormalKyoMemory1") var rareCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareCzCountNormalKyoMemory1") var rareCzCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalKyoMemory1") var rareAtCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareCountNormalGokuMemory1") var rareCountNormalGoku: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalGokuMemory1") var rareAtCountNormalGoku: Int = 0
+    @AppStorage("ragnadorRareCountHighSuikaMemory1") var rareCountHighSuika: Int = 0
+    @AppStorage("ragnadorRareAtCountHighSuikaMemory1") var rareAtCountHighSuika: Int = 0
+    @AppStorage("ragnadorRareCountHighChanceMemory1") var rareCountHighChance: Int = 0
+    @AppStorage("ragnadorRareCzCountHighChanceMemory1") var rareCzCountHighChance: Int = 0
+    @AppStorage("ragnadorRareAtCountHighChanceMemory1") var rareAtCountHighChance: Int = 0
+    @AppStorage("ragnadorRareCountHighKyoMemory1") var rareCountHighKyo: Int = 0
+    @AppStorage("ragnadorRareCzCountHighKyoMemory1") var rareCzCountHighKyo: Int = 0
+    @AppStorage("ragnadorRareAtCountHighKyoMemory1") var rareAtCountHighKyo: Int = 0
+    @AppStorage("ragnadorEnemyIncludeFirstIntervalMemory1") var enemyIncludeFirstInterval: Bool = false
+    @AppStorage("ragnadorGameArrayKeyMemory1") var gameArrayData: Data?
+    @AppStorage("ragnadorEntryKindArrayKeyMemory1") var entryKindArrayData: Data?
+    @AppStorage("ragnadorEnemyArrayKeyMemory1") var enemyArrayData: Data?
+    @AppStorage("ragnadorResultArrayKeyMemory1") var resultArrayData: Data?
+    @AppStorage("ragnadorPlayGameSumMemory1") var playGameSum: Int = 0
+    @AppStorage("ragnadorFirstHitCountCzMemory1") var firstHitCountCz: Int = 0
+    @AppStorage("ragnadorFirstHitCountAtMemory1") var firstHitCountAt: Int = 0
+    @AppStorage("ragnadorFirstHitInputModeMemory1") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("ragnadorManualNormalGameMemory1") var manualNormalGame: Int = 0
+    @AppStorage("ragnadorManualFirstHitCountCzMemory1") var manualFirstHitCountCz: Int = 0
+    @AppStorage("ragnadorManualFirstHitCountAtMemory1") var manualFirstHitCountAt: Int = 0
+    @AppStorage("ragnadorVoiceCount1Memory1") var voiceCount1: Int = 0
+    @AppStorage("ragnadorVoiceCount2Memory1") var voiceCount2: Int = 0
+    @AppStorage("ragnadorVoiceCount3Memory1") var voiceCount3: Int = 0
+    @AppStorage("ragnadorVoiceCount4Memory1") var voiceCount4: Int = 0
+    @AppStorage("ragnadorVoiceCount5Memory1") var voiceCount5: Int = 0
+    @AppStorage("ragnadorVoiceCount6Memory1") var voiceCount6: Int = 0
+    @AppStorage("ragnadorVoiceCount7Memory1") var voiceCount7: Int = 0
+    @AppStorage("ragnadorVoiceCount8Memory1") var voiceCount8: Int = 0
+    @AppStorage("ragnadorVoiceCountSumMemory1") var voiceCountSum: Int = 0
+    @AppStorage("ragnadorEndVoiceCount1Memory1") var endVoiceCount1: Int = 0
+    @AppStorage("ragnadorEndVoiceCount2Memory1") var endVoiceCount2: Int = 0
+    @AppStorage("ragnadorEndVoiceCount3Memory1") var endVoiceCount3: Int = 0
+    @AppStorage("ragnadorEndVoiceCountSumMemory1") var endVoiceCountSum: Int = 0
     @AppStorage("ragnadorMemoMemory1") var memo = ""
     @AppStorage("ragnadorDateMemory1") var dateDouble = 0.0
 }
 
 
 class RagnadorMemory2: ObservableObject {
+    @AppStorage("ragnadorWeakCherryCountMemory2") var weakCherryCount: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountHighMemory2") var weakCherryUpCountHigh: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountSuperHighMemory2") var weakCherryUpCountSuperHigh: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountHighOverMemory2") var weakCherryUpCountHighOver: Int = 0
+    @AppStorage("ragnadorRareCountNormalSuikaMemory2") var rareCountNormalSuika: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalSuikaMemory2") var rareAtCountNormalSuika: Int = 0
+    @AppStorage("ragnadorRareCountNormalChanceMemory2") var rareCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareCzCountNormalChanceMemory2") var rareCzCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalChanceMemory2") var rareAtCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareCountNormalKyoMemory2") var rareCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareCzCountNormalKyoMemory2") var rareCzCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalKyoMemory2") var rareAtCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareCountNormalGokuMemory2") var rareCountNormalGoku: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalGokuMemory2") var rareAtCountNormalGoku: Int = 0
+    @AppStorage("ragnadorRareCountHighSuikaMemory2") var rareCountHighSuika: Int = 0
+    @AppStorage("ragnadorRareAtCountHighSuikaMemory2") var rareAtCountHighSuika: Int = 0
+    @AppStorage("ragnadorRareCountHighChanceMemory2") var rareCountHighChance: Int = 0
+    @AppStorage("ragnadorRareCzCountHighChanceMemory2") var rareCzCountHighChance: Int = 0
+    @AppStorage("ragnadorRareAtCountHighChanceMemory2") var rareAtCountHighChance: Int = 0
+    @AppStorage("ragnadorRareCountHighKyoMemory2") var rareCountHighKyo: Int = 0
+    @AppStorage("ragnadorRareCzCountHighKyoMemory2") var rareCzCountHighKyo: Int = 0
+    @AppStorage("ragnadorRareAtCountHighKyoMemory2") var rareAtCountHighKyo: Int = 0
+    @AppStorage("ragnadorEnemyIncludeFirstIntervalMemory2") var enemyIncludeFirstInterval: Bool = false
+    @AppStorage("ragnadorGameArrayKeyMemory2") var gameArrayData: Data?
+    @AppStorage("ragnadorEntryKindArrayKeyMemory2") var entryKindArrayData: Data?
+    @AppStorage("ragnadorEnemyArrayKeyMemory2") var enemyArrayData: Data?
+    @AppStorage("ragnadorResultArrayKeyMemory2") var resultArrayData: Data?
+    @AppStorage("ragnadorPlayGameSumMemory2") var playGameSum: Int = 0
+    @AppStorage("ragnadorFirstHitCountCzMemory2") var firstHitCountCz: Int = 0
+    @AppStorage("ragnadorFirstHitCountAtMemory2") var firstHitCountAt: Int = 0
+    @AppStorage("ragnadorFirstHitInputModeMemory2") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("ragnadorManualNormalGameMemory2") var manualNormalGame: Int = 0
+    @AppStorage("ragnadorManualFirstHitCountCzMemory2") var manualFirstHitCountCz: Int = 0
+    @AppStorage("ragnadorManualFirstHitCountAtMemory2") var manualFirstHitCountAt: Int = 0
+    @AppStorage("ragnadorVoiceCount1Memory2") var voiceCount1: Int = 0
+    @AppStorage("ragnadorVoiceCount2Memory2") var voiceCount2: Int = 0
+    @AppStorage("ragnadorVoiceCount3Memory2") var voiceCount3: Int = 0
+    @AppStorage("ragnadorVoiceCount4Memory2") var voiceCount4: Int = 0
+    @AppStorage("ragnadorVoiceCount5Memory2") var voiceCount5: Int = 0
+    @AppStorage("ragnadorVoiceCount6Memory2") var voiceCount6: Int = 0
+    @AppStorage("ragnadorVoiceCount7Memory2") var voiceCount7: Int = 0
+    @AppStorage("ragnadorVoiceCount8Memory2") var voiceCount8: Int = 0
+    @AppStorage("ragnadorVoiceCountSumMemory2") var voiceCountSum: Int = 0
+    @AppStorage("ragnadorEndVoiceCount1Memory2") var endVoiceCount1: Int = 0
+    @AppStorage("ragnadorEndVoiceCount2Memory2") var endVoiceCount2: Int = 0
+    @AppStorage("ragnadorEndVoiceCount3Memory2") var endVoiceCount3: Int = 0
+    @AppStorage("ragnadorEndVoiceCountSumMemory2") var endVoiceCountSum: Int = 0
     @AppStorage("ragnadorMemoMemory2") var memo = ""
     @AppStorage("ragnadorDateMemory2") var dateDouble = 0.0
 }
 
 
 class RagnadorMemory3: ObservableObject {
+    @AppStorage("ragnadorWeakCherryCountMemory3") var weakCherryCount: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountHighMemory3") var weakCherryUpCountHigh: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountSuperHighMemory3") var weakCherryUpCountSuperHigh: Int = 0
+    @AppStorage("ragnadorWeakCherryUpCountHighOverMemory3") var weakCherryUpCountHighOver: Int = 0
+    @AppStorage("ragnadorRareCountNormalSuikaMemory3") var rareCountNormalSuika: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalSuikaMemory3") var rareAtCountNormalSuika: Int = 0
+    @AppStorage("ragnadorRareCountNormalChanceMemory3") var rareCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareCzCountNormalChanceMemory3") var rareCzCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalChanceMemory3") var rareAtCountNormalChance: Int = 0
+    @AppStorage("ragnadorRareCountNormalKyoMemory3") var rareCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareCzCountNormalKyoMemory3") var rareCzCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalKyoMemory3") var rareAtCountNormalKyo: Int = 0
+    @AppStorage("ragnadorRareCountNormalGokuMemory3") var rareCountNormalGoku: Int = 0
+    @AppStorage("ragnadorRareAtCountNormalGokuMemory3") var rareAtCountNormalGoku: Int = 0
+    @AppStorage("ragnadorRareCountHighSuikaMemory3") var rareCountHighSuika: Int = 0
+    @AppStorage("ragnadorRareAtCountHighSuikaMemory3") var rareAtCountHighSuika: Int = 0
+    @AppStorage("ragnadorRareCountHighChanceMemory3") var rareCountHighChance: Int = 0
+    @AppStorage("ragnadorRareCzCountHighChanceMemory3") var rareCzCountHighChance: Int = 0
+    @AppStorage("ragnadorRareAtCountHighChanceMemory3") var rareAtCountHighChance: Int = 0
+    @AppStorage("ragnadorRareCountHighKyoMemory3") var rareCountHighKyo: Int = 0
+    @AppStorage("ragnadorRareCzCountHighKyoMemory3") var rareCzCountHighKyo: Int = 0
+    @AppStorage("ragnadorRareAtCountHighKyoMemory3") var rareAtCountHighKyo: Int = 0
+    @AppStorage("ragnadorEnemyIncludeFirstIntervalMemory3") var enemyIncludeFirstInterval: Bool = false
+    @AppStorage("ragnadorGameArrayKeyMemory3") var gameArrayData: Data?
+    @AppStorage("ragnadorEntryKindArrayKeyMemory3") var entryKindArrayData: Data?
+    @AppStorage("ragnadorEnemyArrayKeyMemory3") var enemyArrayData: Data?
+    @AppStorage("ragnadorResultArrayKeyMemory3") var resultArrayData: Data?
+    @AppStorage("ragnadorPlayGameSumMemory3") var playGameSum: Int = 0
+    @AppStorage("ragnadorFirstHitCountCzMemory3") var firstHitCountCz: Int = 0
+    @AppStorage("ragnadorFirstHitCountAtMemory3") var firstHitCountAt: Int = 0
+    @AppStorage("ragnadorFirstHitInputModeMemory3") var firstHitInputMode: String = "履歴入力"
+    @AppStorage("ragnadorManualNormalGameMemory3") var manualNormalGame: Int = 0
+    @AppStorage("ragnadorManualFirstHitCountCzMemory3") var manualFirstHitCountCz: Int = 0
+    @AppStorage("ragnadorManualFirstHitCountAtMemory3") var manualFirstHitCountAt: Int = 0
+    @AppStorage("ragnadorVoiceCount1Memory3") var voiceCount1: Int = 0
+    @AppStorage("ragnadorVoiceCount2Memory3") var voiceCount2: Int = 0
+    @AppStorage("ragnadorVoiceCount3Memory3") var voiceCount3: Int = 0
+    @AppStorage("ragnadorVoiceCount4Memory3") var voiceCount4: Int = 0
+    @AppStorage("ragnadorVoiceCount5Memory3") var voiceCount5: Int = 0
+    @AppStorage("ragnadorVoiceCount6Memory3") var voiceCount6: Int = 0
+    @AppStorage("ragnadorVoiceCount7Memory3") var voiceCount7: Int = 0
+    @AppStorage("ragnadorVoiceCount8Memory3") var voiceCount8: Int = 0
+    @AppStorage("ragnadorVoiceCountSumMemory3") var voiceCountSum: Int = 0
+    @AppStorage("ragnadorEndVoiceCount1Memory3") var endVoiceCount1: Int = 0
+    @AppStorage("ragnadorEndVoiceCount2Memory3") var endVoiceCount2: Int = 0
+    @AppStorage("ragnadorEndVoiceCount3Memory3") var endVoiceCount3: Int = 0
+    @AppStorage("ragnadorEndVoiceCountSumMemory3") var endVoiceCountSum: Int = 0
     @AppStorage("ragnadorMemoMemory3") var memo = ""
     @AppStorage("ragnadorDateMemory3") var dateDouble = 0.0
 }
