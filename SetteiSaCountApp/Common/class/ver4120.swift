@@ -56,3 +56,19 @@ struct tipVer4120Goeva2Episode: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：聖闘士星矢 通常時 守護星座の加護
+//////////////////
+struct tipVer4120SeiyaShugoSeiza: Tip {
+    var title: Text {
+        Text("情報更新")
+    }
+    var message: Text? {
+        Text("守護星座の加護の設定変更時の振分けを追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}

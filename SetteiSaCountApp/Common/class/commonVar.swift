@@ -915,6 +915,9 @@ class commonVar: ObservableObject {
                 // ゴジエヴァ2
                 machines.updateMachineBadgeStatus(id: "5119", newStatus: "update")
                 goeva2MenuEndingBadge = "update"
+                // 聖闘士星矢
+                machines.updateMachineBadgeStatus(id: "5104", newStatus: "update")
+                seiyaMenuNormalBadge = "update"
             } else {
                 print("\(targetVersion)以上です")
             }

@@ -73,8 +73,57 @@ struct seiyaViewNormal: View {
                         }
                     }
                 }
+
+                // 参考情報）設定変更時の振分け
+                unitLinkButtonViewBuilder(sheetTitle: "設定変更時の振分け") {
+                    VStack(spacing: 20) {
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercentVer2(
+                                columTitle: "加護なし",
+                                percentList: [60.9,57.8,54.3,49.2],
+                                numberofDicimal: 0,
+                                lineList: [1,1,1,3],
+                            )
+                            unitTablePercentVer2(
+                                columTitle: "星矢",
+                                percentList: [5.9,6.3,7.8],
+                                numberofDicimal: 1,
+                                lineList: [1,1,4],
+                            )
+                            unitTablePercentVer2(
+                                columTitle: "氷河",
+                                percentList: [14.8],
+                                numberofDicimal: 0,
+                                lineList: [6],
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercentVer2(
+                                columTitle: "瞬",
+                                percentList: [11.7],
+                                numberofDicimal: 0,
+                                lineList: [6],
+                            )
+                            unitTablePercentVer2(
+                                columTitle: "紫龍",
+                                percentList: [3.5,5.1,6.3,10.2],
+                                numberofDicimal: 1,
+                                lineList: [1,1,1,3],
+                            )
+                            unitTablePercentVer2(
+                                columTitle: "一輝",
+                                percentList: [3.1,4.3,5.1,6.3],
+                                numberofDicimal: 1,
+                                lineList: [1,1,1,3],
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer4120SeiyaShugoSeiza())
             } header: {
-                Text("守護星座")
+                Text("守護星座の加護")
             }
 
             // ---- カード演出
