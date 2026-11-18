@@ -193,6 +193,8 @@ struct seiyaSubViewSaveMemory: View {
         )
     }
     func saveMemory1() {
+        seiyaMemory1.cycleAtCountCycle = seiya.cycleAtCountCycle
+        seiyaMemory1.cycleAtCountHit = seiya.cycleAtCountHit
         seiyaMemory1.gameArrayData = seiya.gameArrayData
         seiyaMemory1.czKindArrayData = seiya.czKindArrayData
         seiyaMemory1.atResultArrayData = seiya.atResultArrayData
@@ -229,6 +231,8 @@ struct seiyaSubViewSaveMemory: View {
         seiyaMemory1.lampCountSum = seiya.lampCountSum
     }
     func saveMemory2() {
+        seiyaMemory2.cycleAtCountCycle = seiya.cycleAtCountCycle
+        seiyaMemory2.cycleAtCountHit = seiya.cycleAtCountHit
         seiyaMemory2.gameArrayData = seiya.gameArrayData
         seiyaMemory2.czKindArrayData = seiya.czKindArrayData
         seiyaMemory2.atResultArrayData = seiya.atResultArrayData
@@ -265,6 +269,8 @@ struct seiyaSubViewSaveMemory: View {
         seiyaMemory2.lampCountSum = seiya.lampCountSum
     }
     func saveMemory3() {
+        seiyaMemory3.cycleAtCountCycle = seiya.cycleAtCountCycle
+        seiyaMemory3.cycleAtCountHit = seiya.cycleAtCountHit
         seiyaMemory3.gameArrayData = seiya.gameArrayData
         seiyaMemory3.czKindArrayData = seiya.czKindArrayData
         seiyaMemory3.atResultArrayData = seiya.atResultArrayData
@@ -330,6 +336,8 @@ struct seiyaSubViewLoadMemory: View {
         )
     }
     func loadMemory1() {
+        seiya.cycleAtCountCycle = seiyaMemory1.cycleAtCountCycle
+        seiya.cycleAtCountHit = seiyaMemory1.cycleAtCountHit
         let gameArrayDecoded = decodeIntArray(from: seiyaMemory1.gameArrayData)
         saveArray(gameArrayDecoded, forKey: seiya.gameArrayKey)
         let czKindArrayDecoded = decodeStringArray(from: seiyaMemory1.czKindArrayData)
@@ -369,6 +377,8 @@ struct seiyaSubViewLoadMemory: View {
         seiya.lampCountSum = seiyaMemory1.lampCountSum
     }
     func loadMemory2() {
+        seiya.cycleAtCountCycle = seiyaMemory2.cycleAtCountCycle
+        seiya.cycleAtCountHit = seiyaMemory2.cycleAtCountHit
         let gameArrayDecoded = decodeIntArray(from: seiyaMemory2.gameArrayData)
         saveArray(gameArrayDecoded, forKey: seiya.gameArrayKey)
         let czKindArrayDecoded = decodeStringArray(from: seiyaMemory2.czKindArrayData)
@@ -408,6 +418,8 @@ struct seiyaSubViewLoadMemory: View {
         seiya.lampCountSum = seiyaMemory2.lampCountSum
     }
     func loadMemory3() {
+        seiya.cycleAtCountCycle = seiyaMemory3.cycleAtCountCycle
+        seiya.cycleAtCountHit = seiyaMemory3.cycleAtCountHit
         let gameArrayDecoded = decodeIntArray(from: seiyaMemory3.gameArrayData)
         saveArray(gameArrayDecoded, forKey: seiya.gameArrayKey)
         let czKindArrayDecoded = decodeStringArray(from: seiyaMemory3.czKindArrayData)

@@ -88,3 +88,19 @@ struct tipVer4120GgoGrenade: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：聖闘士星矢 通常時 規定周期到達時のAT直撃
+//////////////////
+struct tipVer4120SeiyaCycleAt: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("規定周期到達時のAT直撃のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
