@@ -250,6 +250,42 @@ struct ragnadorView95Ci: View {
             )
             .tag(14)
 
+            // CZ初当り回数
+            unitListSection95Ci(
+                grafTitle: "CZ初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $ragnador.activeFirstHitCountCz,
+                        bigNumber: $ragnador.activeNormalGame,
+                        setting1Denominate: ragnador.ratioFirstHitCz[0],
+                        setting2Denominate: ragnador.ratioFirstHitCz[1],
+                        setting3Denominate: ragnador.ratioFirstHitCz[2],
+                        setting4Denominate: ragnador.ratioFirstHitCz[3],
+                        setting5Denominate: ragnador.ratioFirstHitCz[4],
+                        setting6Denominate: ragnador.ratioFirstHitCz[5]
+                    )
+                )
+            )
+            .tag(15)
+
+            // AT初当り回数
+            unitListSection95Ci(
+                grafTitle: "AT初当り回数",
+                grafView: AnyView(
+                    unitChart95CiDenominate(
+                        currentCount: $ragnador.activeFirstHitCountAt,
+                        bigNumber: $ragnador.activeNormalGame,
+                        setting1Denominate: ragnador.ratioFirstHitAt[0],
+                        setting2Denominate: ragnador.ratioFirstHitAt[1],
+                        setting3Denominate: ragnador.ratioFirstHitAt[2],
+                        setting4Denominate: ragnador.ratioFirstHitAt[3],
+                        setting5Denominate: ragnador.ratioFirstHitAt[4],
+                        setting6Denominate: ragnador.ratioFirstHitAt[5]
+                    )
+                )
+            )
+            .tag(16)
+
             // 回数
 //            unitListSection95Ci(
 //                grafTitle: "回数",

@@ -91,9 +91,384 @@ class Ragnador: ObservableObject {
     // --------
     // 初当り
     // --------
+    let ratioFirstHitCz: [Double] = [172.8,167.2,161.8,145.0,143.0,142.4]
+    let ratioFirstHitAt: [Double] = [326.4,317.2,307.7,271.2,260.8,258.3]
+    // 選択肢
+    let entryKindList: [String] = ["CZ", "直撃", "天井", "その他"]
+    let enemyList: [String] = ["青龍", "白虎", "玄武", "朱雀"]
+    let atResultList: [String] = ["ハズレ", "当選"]   // AT当否
+    // 選択結果
+    @AppStorage("ragnadorInputGame") var inputGame: Int = 0
+    @AppStorage("ragnadorSelectedEntryKind") var selectedEntryKind: String = "CZ"
+    @AppStorage("ragnadorSelectedEnemy") var selectedEnemy: String = "青龍"
+    @AppStorage("ragnadorSelectedAtResult") var selectedAtResult: String = "ハズレ"
+    // 最初のAT区間（最初のAT当選まで）を敵選択テーブルの計算に含めるか
+    // ONならAT後の区間（テーブル6〜10）として扱い、OFFなら計算に使わない
+    @AppStorage("ragnadorEnemyIncludeFirstInterval") var enemyIncludeFirstInterval: Bool = false
 
+    // 履歴（1行＝1回の初当り）
+    // CZの行：ゲーム数／CZ／敵／AT当否
+    // 直撃・天井・その他の行：ゲーム数／種類／空欄／AT当否（直撃は当選固定）
+    let gameArrayKey: String = "ragnadorGameArrayKey"
+    @AppStorage("ragnadorGameArrayKey") var gameArrayData: Data?
+    let entryKindArrayKey: String = "ragnadorEntryKindArrayKey"
+    @AppStorage("ragnadorEntryKindArrayKey") var entryKindArrayData: Data?
+    let enemyArrayKey: String = "ragnadorEnemyArrayKey"
+    @AppStorage("ragnadorEnemyArrayKey") var enemyArrayData: Data?
+    let resultArrayKey: String = "ragnadorResultArrayKey"
+    @AppStorage("ragnadorResultArrayKey") var resultArrayData: Data?
+
+    // 履歴からの自動算出結果
+    @AppStorage("ragnadorPlayGameSum") var playGameSum: Int = 0
+    @AppStorage("ragnadorFirstHitCountCz") var firstHitCountCz: Int = 0
+    @AppStorage("ragnadorFirstHitCountAt") var firstHitCountAt: Int = 0
+
+    // 入力方式（履歴入力／カウント入力）
+    let firstHitInputModeList: [String] = ["履歴入力", "カウント入力"]
+    @AppStorage("ragnadorFirstHitInputMode") var firstHitInputMode: String = "履歴入力"
+    // カウント入力用
+    @AppStorage("ragnadorManualNormalGame") var manualNormalGame: Int = 0
+    @AppStorage("ragnadorManualFirstHitCountCz") var manualFirstHitCountCz: Int = 0
+    @AppStorage("ragnadorManualFirstHitCountAt") var manualFirstHitCountAt: Int = 0
+    // 確率算出・95Ci・設定期待値に使う値（選択中の入力方式の値を返す）
+    var isHistoryInputMode: Bool {
+        firstHitInputMode == firstHitInputModeList[0]
+    }
+    var isCzEntry: Bool {
+        selectedEntryKind == entryKindList[0]
+    }
+    var isDirectEntry: Bool {
+        selectedEntryKind == entryKindList[1]
+    }
+    var activeNormalGame: Int {
+        get { isHistoryInputMode ? playGameSum : manualNormalGame }
+        set { }
+    }
+    var activeFirstHitCountCz: Int {
+        get { isHistoryInputMode ? firstHitCountCz : manualFirstHitCountCz }
+        set { }
+    }
+    var activeFirstHitCountAt: Int {
+        get { isHistoryInputMode ? firstHitCountAt : manualFirstHitCountAt }
+        set { }
+    }
+
+    // データ登録
+    func addHistory() {
+        arrayIntAddData(arrayData: gameArrayData, addData: inputGame, key: gameArrayKey)
+        arrayStringAddData(arrayData: entryKindArrayData, addData: selectedEntryKind, key: entryKindArrayKey)
+        // 敵はCZのときだけ
+        arrayStringAddData(arrayData: enemyArrayData, addData: isCzEntry ? selectedEnemy : "", key: enemyArrayKey)
+        // 直撃はAT当選固定
+        arrayStringAddData(arrayData: resultArrayData, addData: isDirectEntry ? atResultList[1] : selectedAtResult, key: resultArrayKey)
+        addRemoveCommon()
+    }
+    // 1行削除
+    func removeLastHistory() {
+        arrayIntRemoveLast(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveLast(arrayData: entryKindArrayData, key: entryKindArrayKey)
+        arrayStringRemoveLast(arrayData: enemyArrayData, key: enemyArrayKey)
+        arrayStringRemoveLast(arrayData: resultArrayData, key: resultArrayKey)
+        addRemoveCommon()
+    }
     func resetFirstHit() {
+        arrayIntRemoveAll(arrayData: gameArrayData, key: gameArrayKey)
+        arrayStringRemoveAll(arrayData: entryKindArrayData, key: entryKindArrayKey)
+        arrayStringRemoveAll(arrayData: enemyArrayData, key: enemyArrayKey)
+        arrayStringRemoveAll(arrayData: resultArrayData, key: resultArrayKey)
+        addRemoveCommon()
+        inputGame = 0
+        manualNormalGame = 0
+        manualFirstHitCountCz = 0
+        manualFirstHitCountAt = 0
         minusCheck = false
+    }
+    func addRemoveCommon() {
+        playGameSum = arrayIntAllDataSum(arrayData: gameArrayData)
+        firstHitCountCz = arrayStringDataCount(arrayData: entryKindArrayData, countString: entryKindList[0])
+        firstHitCountAt = arrayStringDataCount(arrayData: resultArrayData, countString: atResultList[1])
+    }
+
+    // ある行がAT当選か
+    func isAtResult(_ result: String) -> Bool {
+        result == atResultList[1]
+    }
+
+    // AT区間の区切り（その行でATに当選したか）
+    var historyAtFlagList: [Bool] {
+        decodeStringArray(from: resultArrayData).map { isAtResult($0) }
+    }
+
+    // --------
+    // 敵選択テーブル
+    // --------
+    // 敵種別テーブル（CZごとに、どの振り分けで敵を決めるか）
+    // 0:通常 1:白虎以上 2:玄武以上 3:朱雀 4:チャンス
+    let enemyTypeNameList: [String] = ["通常", "白虎以上", "玄武以上", "朱雀", "チャンス"]
+    // 敵の振り分け（％）。並びは enemyList（青龍・白虎・玄武・朱雀）
+    // 通常は設定差あり（青龍・玄武）。設定ごとの値は enemyTypeRatio で組み立てる
+    let ratioEnemyNormalGenbu: [Double] = [1.6,2.0,2.3,4.7,5.5,6.3]
+    let ratioEnemyTypeFixed: [[Double]] = [
+        [0, 0, 0, 0],            // 通常（設定ごとに組み立てるので未使用）
+        [0, 87.1, 12.5, 0.4],    // 白虎以上
+        [0, 0, 87.5, 12.5],      // 玄武以上
+        [0, 0, 0, 100],          // 朱雀
+        [64.5, 5.1, 18.0, 12.5], // チャンス
+    ]
+    // 敵選択テーブル。CZ回数ごとの敵種別テーブル（最後の要素以降はその値を使い続ける）
+    // 設定変更後：テーブル1〜5
+    let enemyTableChangeList: [[Int]] = [
+        [0, 1, 3],   // テーブル1
+        [1, 0, 3],   // テーブル2
+        [0, 2, 3],   // テーブル3
+        [2, 0, 3],   // テーブル4
+        [3, 3, 3],   // テーブル5
+    ]
+    let ratioEnemyTableChange: [Double] = [47.3, 4.7, 1.6, 46.1, 0.4]
+    // AT後：テーブル6〜10
+    let enemyTableAtList: [[Int]] = [
+        [4, 0, 1, 0, 1, 3],   // テーブル6
+        [4, 3, 0, 1, 0, 3],   // テーブル7
+        [3, 0, 1, 0, 2, 3],   // テーブル8
+        [4, 0, 0, 2, 0, 3],   // テーブル9
+        [3, 3, 3, 3, 3, 3],   // テーブル10
+    ]
+    // テーブル7（設定差あり）。テーブル6は「テーブル6＋7の合計 52.0%」からテーブル7を引いた値
+    let ratioEnemyTable7: [Double] = [4.7,5.5,6.3,7.8,8.6,9.4]
+    let ratioEnemyTable67Sum: Double = 52.0
+    let ratioEnemyTable8: Double = 1.6
+    let ratioEnemyTable9: Double = 46.1
+    let ratioEnemyTable10: Double = 0.4
+
+    // 敵種別テーブルの振り分け（0〜1）。setting は 0〜5
+    func enemyTypeRatio(type: Int, setting: Int) -> [Double] {
+        if type == 0 {
+            let genbu = ratioEnemyNormalGenbu[setting]
+            return [100 - 12.5 - genbu - 0.4, 12.5, genbu, 0.4].map { $0 / 100 }
+        }
+        return ratioEnemyTypeFixed[type].map { $0 / 100 }
+    }
+
+    // テーブル7の選択率 table7（0〜1）を前提にした、AT後テーブル6〜10の選択率（0〜1）
+    func enemyTableAtPrior(table7: Double) -> [Double] {
+        [
+            ratioEnemyTable67Sum / 100 - table7,
+            table7,
+            ratioEnemyTable8 / 100,
+            ratioEnemyTable9 / 100,
+            ratioEnemyTable10 / 100,
+        ]
+    }
+
+    // そのテーブルで、区間の敵の並びが起きる確率
+    func enemyTableLikelihood(typeList: [Int], interval: RagnadorEnemyInterval, setting: Int) -> Double {
+        var likelihood = 1.0
+        for (offset, enemy) in interval.enemies.enumerated() {
+            let type = typeList[min(offset, typeList.count - 1)]
+            likelihood *= enemyTypeRatio(type: type, setting: setting)[enemy]
+        }
+        return likelihood
+    }
+
+    // 設定ごとの、区間の敵の並びが起きる確率（設定期待値で使う）
+    func enemyIntervalProbability(interval: RagnadorEnemyInterval, setting: Int) -> Double {
+        if interval.isAfterAt {
+            let prior = enemyTableAtPrior(table7: ratioEnemyTable7[setting] / 100)
+            return enemyTableAtList.indices.reduce(0.0) {
+                $0 + prior[$1] * enemyTableLikelihood(typeList: enemyTableAtList[$1], interval: interval, setting: setting)
+            }
+        } else {
+            let total = ratioEnemyTableChange.reduce(0, +)
+            return enemyTableChangeList.indices.reduce(0.0) {
+                $0 + ratioEnemyTableChange[$1] / total * enemyTableLikelihood(typeList: enemyTableChangeList[$1], interval: interval, setting: setting)
+            }
+        }
+    }
+
+    // 履歴をテーブル区間ごとに分けたもの（古い順）。最初のAT区間は、含める設定のときだけ入れる
+    var enemyAllIntervalList: [RagnadorEnemyInterval] {
+        enemyBuildIntervalList(includeOpenEmpty: false)
+    }
+    // テーブル推測の表示用。AT当選直後でCZがまだ無い現在の区間も含める
+    var enemyDisplayIntervalList: [RagnadorEnemyInterval] {
+        enemyBuildIntervalList(includeOpenEmpty: true)
+    }
+    func enemyBuildIntervalList(includeOpenEmpty: Bool) -> [RagnadorEnemyInterval] {
+        let kindArray = decodeStringArray(from: entryKindArrayData)
+        let enemyArray = decodeStringArray(from: enemyArrayData)
+        let resultArray = decodeStringArray(from: resultArrayData)
+        var list: [RagnadorEnemyInterval] = []
+        // 0:設定変更後 1:AT後 2:不明
+        var startIndex = enemyIncludeFirstInterval ? 1 : 2
+        var enemies: [Int] = []
+        func close(isOpen: Bool) {
+            // 含めない設定の最初の区間と、CZが1回も無い区間は使わない（表示用の現在の区間は除く）
+            if startIndex != 2 && (!enemies.isEmpty || (isOpen && includeOpenEmpty)) {
+                list.append(RagnadorEnemyInterval(isAfterAt: startIndex == 1, enemies: enemies, isOpen: isOpen))
+            }
+            enemies = []
+        }
+        for index in kindArray.indices {
+            if kindArray[index] == entryKindList[0],
+               enemyArray.indices.contains(index),
+               let enemy = enemyList.firstIndex(of: enemyArray[index]) {
+                enemies.append(enemy)
+            }
+            if resultArray.indices.contains(index) && isAtResult(resultArray[index]) {
+                close(isOpen: false)
+                startIndex = 1   // 以降はAT後
+            }
+        }
+        close(isOpen: true)
+        return list
+    }
+
+    // どのテーブルでもあり得る並びか（朝一稼働の設定間違いなどの検出用）
+    func enemyIsPossible(interval: RagnadorEnemyInterval) -> Bool {
+        enemyIntervalProbability(interval: interval, setting: 0) > 0
+    }
+
+    // 判別に使える区間（あり得ない並びの区間は除外）
+    var enemyValidIntervalList: [RagnadorEnemyInterval] {
+        enemyAllIntervalList.filter { enemyIsPossible(interval: $0) }
+    }
+
+    // あり得ない並びで除外した区間があるか
+    var enemyHasInvalidInterval: Bool {
+        enemyAllIntervalList.count != enemyValidIntervalList.count
+    }
+
+    // //// 推定テーブル7選択率（計測区間数に応じた補正つき）
+    // 打ち始めは「一般的なホールの設定配分」でのテーブル7選択率を、補正用の区間として数区間分持たせ、
+    // 区間の記録が増えるほど、その台の記録から見た値に近づける。
+    // テーブル7かどうか絞り込めない区間（AT後1回目のCZだけの区間など）は、推定値をどちらにも動かさない。
+    // 一般的なホールの設定配分（設定期待値ページの事前配分「デフォルト」と同じ）
+    let enemyGeneralSettingWeightList: [Double] = [72, 21, 2, 3, 1, 1]
+    // 補正用に持たせる区間数
+    let enemyPriorIntervalCount: Double = 3
+
+    // 一般的なホールの設定配分で平均したテーブル7選択率（0〜1）
+    var enemyTable7General: Double {
+        let total = enemyGeneralSettingWeightList.reduce(0, +)
+        return enemyGeneralSettingWeightList.indices.reduce(0.0) {
+            $0 + enemyGeneralSettingWeightList[$1] / total * ratioEnemyTable7[$1] / 100
+        }
+    }
+
+    // 区間がテーブル7だった見込み（テーブル7選択率 table7 が前提）
+    // 敵の振り分けは一般的なホールの設定配分で平均した通常テーブルを使う
+    private func enemyTable7Probability(interval: RagnadorEnemyInterval, table7: Double) -> Double {
+        let prior = enemyTableAtPrior(table7: table7)
+        let weightList = enemyTableAtList.indices.map { table in
+            prior[table] * enemyGeneralLikelihood(typeList: enemyTableAtList[table], interval: interval)
+        }
+        let total = weightList.reduce(0, +)
+        guard total > 0 else { return table7 }
+        return weightList[1] / total
+    }
+
+    // 一般的なホールの設定配分で平均した、テーブルの敵の並びが起きる確率
+    private func enemyGeneralLikelihood(typeList: [Int], interval: RagnadorEnemyInterval) -> Double {
+        let total = enemyGeneralSettingWeightList.reduce(0, +)
+        return enemyGeneralSettingWeightList.indices.reduce(0.0) {
+            $0 + enemyGeneralSettingWeightList[$1] / total * enemyTableLikelihood(typeList: typeList, interval: interval, setting: $1)
+        }
+    }
+
+    // 推定に使うAT後の区間
+    var enemyAtIntervalList: [RagnadorEnemyInterval] {
+        enemyValidIntervalList.filter { $0.isAfterAt }
+    }
+
+    // 推定テーブル7選択率（0〜1）
+    // 「補正用の区間＋各区間のテーブル7の見込み」の平均を、値が落ち着くまで繰り返し求める
+    var enemyEstimatedTable7Ratio: Double {
+        let general = enemyTable7General
+        let intervalList = enemyAtIntervalList
+        var table7 = general
+        for _ in 0..<200 {
+            let sum = intervalList.reduce(0.0) { $0 + enemyTable7Probability(interval: $1, table7: table7) }
+            let next = (enemyPriorIntervalCount * general + sum) / (enemyPriorIntervalCount + Double(intervalList.count))
+            if abs(next - table7) < 1e-7 {
+                table7 = next
+                break
+            }
+            table7 = next
+        }
+        return table7
+    }
+
+    // 推定テーブル7の区間数
+    var enemyEstimatedTable7Count: Double {
+        let table7 = enemyEstimatedTable7Ratio
+        return enemyAtIntervalList.reduce(0.0) { $0 + enemyTable7Probability(interval: $1, table7: table7) }
+    }
+
+    // //// テーブル推測（区間ごと）
+    // 区間のテーブル名（設定変更後はテーブル1〜5、AT後はテーブル6〜10）
+    func enemyTableNameList(interval: RagnadorEnemyInterval) -> [String] {
+        (0..<5).map { "テーブル\(interval.isAfterAt ? $0 + 6 : $0 + 1)" }
+    }
+    // 区間のテーブルの並び
+    private func enemyTableTypeList(interval: RagnadorEnemyInterval) -> [[Int]] {
+        interval.isAfterAt ? enemyTableAtList : enemyTableChangeList
+    }
+    // 区間ごとのテーブルの見込み（0〜1。AT後は推定テーブル7選択率が前提）
+    func enemyTablePosterior(interval: RagnadorEnemyInterval) -> [Double] {
+        var prior: [Double]
+        if interval.isAfterAt {
+            prior = enemyTableAtPrior(table7: enemyEstimatedTable7Ratio)
+        } else {
+            let total = ratioEnemyTableChange.reduce(0, +)
+            prior = ratioEnemyTableChange.map { $0 / total }
+        }
+        let typeListList = enemyTableTypeList(interval: interval)
+        let weightList = prior.indices.map { prior[$0] * enemyGeneralLikelihood(typeList: typeListList[$0], interval: interval) }
+        let total = weightList.reduce(0, +)
+        guard total > 0 else { return weightList.map { _ in 0 } }
+        return weightList.map { $0 / total }
+    }
+    // CZ回数別の敵の実質出現率（％）。czNumber は 1〜。並びは enemyList
+    func enemyEffectiveRatio(isAfterAt: Bool, czNumber: Int, setting: Int) -> [Double] {
+        let prior: [Double]
+        if isAfterAt {
+            prior = enemyTableAtPrior(table7: ratioEnemyTable7[setting] / 100)
+        } else {
+            let total = ratioEnemyTableChange.reduce(0, +)
+            prior = ratioEnemyTableChange.map { $0 / total }
+        }
+        let typeListList = isAfterAt ? enemyTableAtList : enemyTableChangeList
+        var ratioList = [0.0, 0.0, 0.0, 0.0]
+        for table in prior.indices {
+            let typeList = typeListList[table]
+            let type = typeList[min(czNumber - 1, typeList.count - 1)]
+            let ratio = enemyTypeRatio(type: type, setting: setting)
+            for enemy in ratioList.indices {
+                ratioList[enemy] += prior[table] * ratio[enemy] * 100
+            }
+        }
+        return ratioList
+    }
+
+    // 次のCZの敵の見込み（0〜1）。並びは enemyList（青龍・白虎・玄武・朱雀）
+    func enemyNextForecast(interval: RagnadorEnemyInterval) -> [Double] {
+        let posterior = enemyTablePosterior(interval: interval)
+        let typeListList = enemyTableTypeList(interval: interval)
+        let nextIndex = interval.enemies.count
+        let weightTotal = enemyGeneralSettingWeightList.reduce(0, +)
+        var forecast = [0.0, 0.0, 0.0, 0.0]
+        for table in posterior.indices {
+            let typeList = typeListList[table]
+            let type = typeList[min(nextIndex, typeList.count - 1)]
+            for setting in enemyGeneralSettingWeightList.indices {
+                let ratio = enemyTypeRatio(type: type, setting: setting)
+                let weight = posterior[table] * enemyGeneralSettingWeightList[setting] / weightTotal
+                for enemy in forecast.indices {
+                    forecast[enemy] += weight * ratio[enemy]
+                }
+            }
+        }
+        return forecast
     }
 
     // -------
@@ -195,4 +570,12 @@ class RagnadorMemory2: ObservableObject {
 class RagnadorMemory3: ObservableObject {
     @AppStorage("ragnadorMemoMemory3") var memo = ""
     @AppStorage("ragnadorDateMemory3") var dateDouble = 0.0
+}
+
+
+// 敵選択テーブルの区間（設定変更後またはAT後から、次のAT当選まで）
+struct RagnadorEnemyInterval {
+    var isAfterAt: Bool   // true＝AT後（テーブル6〜10）、false＝設定変更後（テーブル1〜5）
+    var enemies: [Int]    // CZごとの敵（enemyList の番号。古い順）
+    var isOpen: Bool = false   // まだAT当選していない現在の区間か
 }

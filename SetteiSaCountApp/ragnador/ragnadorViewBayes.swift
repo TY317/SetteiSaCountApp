@@ -20,6 +20,9 @@ struct ragnadorViewBayes: View {
     @EnvironmentObject var viewModel: InterstitialViewModel
     @State var weakCherryUpEnable: Bool = true
     @State var rareHitEnable: Bool = true
+    @State var firstHitCzEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
+    @State var enemyTableEnable: Bool = true
     @State var voiceEnable: Bool = true
     @State var guessCustom1: [Int] = []   // カスタム配分1用の入れ物
     @State var guessCustom2: [Int] = []   // カスタム配分2用の入れ物
@@ -53,6 +56,17 @@ struct ragnadorViewBayes: View {
 
                 // レア役からのCZ・AT当選率
                 unitToggleWithQuestion(enable: self.$rareHitEnable, title: "レア役からのCZ・AT当選率")
+
+                // 初当り
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ確率")
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                unitToggleWithQuestion(enable: self.$enemyTableEnable, title: "敵選択テーブル") {
+                    unitExView5body2image(
+                        title: "敵選択テーブル",
+                        textBody1: "・初当りページの履歴入力で登録したCZの敵の並びから、敵選択テーブル（テーブル7・通常テーブルの玄武）の設定差を反映します",
+                        textBody2: "・カウント入力では反映されません"
+                    )
+                }
 
                 // エンディング
                 unitToggleWithQuestion(enable: self.$voiceEnable, title: "エンディング中ボイス") {
@@ -213,6 +227,37 @@ struct ragnadorViewBayes: View {
             ])
         }
 
+        // CZ確率
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: ragnador.ratioFirstHitCz,
+                Count: ragnador.activeFirstHitCountCz,
+                bigNumber: ragnador.activeNormalGame
+            )
+        }
+
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: ragnador.ratioFirstHitAt,
+                Count: ragnador.activeFirstHitCountAt,
+                bigNumber: ragnador.activeNormalGame
+            )
+        }
+
+        // 敵選択テーブル（履歴入力のときだけ。区間ごとの敵の並びの確率をテーブルで重みづけ）
+        var logPostEnemyTable: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.enemyTableEnable && ragnador.isHistoryInputMode {
+            for interval in ragnador.enemyValidIntervalList {
+                for setting in self.settingList.indices {
+                    let probability = ragnador.enemyIntervalProbability(interval: interval, setting: setting)
+                    logPostEnemyTable[setting] += log(max(probability, 1e-300))
+                }
+            }
+        }
+
         // エンディング
         // 確定系（設定2・4・5以上／設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
         var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
@@ -273,6 +318,9 @@ struct ragnadorViewBayes: View {
         let logPostSum: [Double] = arraySumDouble([
             logPostWeakCherryUp,
             logPostRareHit,
+            logPostFirstHitCz,
+            logPostFirstHitAt,
+            logPostEnemyTable,
             logPostVoice,
             logPostTrophy,
             logPostBefore,
