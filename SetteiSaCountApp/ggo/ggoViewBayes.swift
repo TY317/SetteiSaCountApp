@@ -24,6 +24,7 @@ struct ggoViewBayes: View {
     @State var resultGuess: [Double] = []   // 計算結果の入れ物
     @State var isShowResult: Bool = false   // 結果シートの表示トリガー
     @State var modeHeavenEnable: Bool = true
+    @State var grenadeEnable: Bool = true
     @State var firstHitBonusEnable: Bool = true
     @State var firstHitStEnable: Bool = true
     @State var over2Check: Bool = false   // 2以上濃厚
@@ -47,6 +48,8 @@ struct ggoViewBayes: View {
             // //// STEP2
             bayesSubStep2Section {
                 // ここに小役確率など機種固有の判別要素トグルを後で追加する
+                // グレネードジャッジ報酬
+                unitToggleWithQuestion(enable: self.$grenadeEnable, title: "グレネードジャッジ報酬")
                 // 天国選択率
                 unitToggleWithQuestion(enable: self.$modeHeavenEnable, title: "天国選択率")
                 // 初当り
@@ -133,6 +136,21 @@ struct ggoViewBayes: View {
                 bigNumber: ggo.modeHeavenCountSum
             )
         }
+        // グレネードジャッジ報酬（その他は残余に吸収）
+        var logPostGrenade: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.grenadeEnable {
+            logPostGrenade = logPostPercentMulti(
+                countList: [
+                    ggo.grenadeCountBonus,
+                    ggo.grenadeCountYesMam,
+                ],
+                ratioList: [
+                    ggo.ratioGrenadeBonus,
+                    ggo.ratioGrenadeYesMam,
+                ],
+                bigNumber: ggo.grenadeCountSum
+            )
+        }
         // ボーナス合算確率
         var logPostFirstHitBonus: [Double] = [Double](repeating: 0, count: self.settingList.count)
         if self.firstHitBonusEnable {
@@ -190,6 +208,7 @@ struct ggoViewBayes: View {
         // 判別要素の尤度合算
         let logPostSum: [Double] = arraySumDouble([
             logPostModeHeaven,
+            logPostGrenade,
             logPostFirstHitBonus,
             logPostFirstHitSt,
             logPostTrophy,

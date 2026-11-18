@@ -28,6 +28,102 @@ struct ggoViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ---- グレネードジャッジ報酬
+            Section {
+                // 確率横並び
+                HStack {
+                    // ボーナス
+                    unitResultRatioPercent2Line(
+                        title: "ボーナス",
+                        count: $ggo.grenadeCountBonus,
+                        bigNumber: $ggo.grenadeCountSum,
+                        numberofDicimal: 1,
+                        spacerBool: false,
+                    )
+                    // イエスマム
+                    unitResultRatioPercent2Line(
+                        title: "イエスマム",
+                        count: $ggo.grenadeCountYesMam,
+                        bigNumber: $ggo.grenadeCountSum,
+                        numberofDicimal: 1,
+                        spacerBool: false,
+                    )
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .popoverTip(tipVer4120GgoGrenade())
+
+                // 参考情報）グレネードジャッジ報酬
+                unitLinkButtonViewBuilder(sheetTitle: "グレネードジャッジ報酬") {
+                    Text("・報酬獲得時の振り分けに設定差あり")
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "ボーナス",
+                            percentList: ggo.ratioGrenadeBonus,
+                            numberofDicimal: 1,
+                        )
+                        unitTablePercent(
+                            columTitle: "イエスマム",
+                            percentList: ggo.ratioGrenadeYesMam,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // カウントボタン横並び
+                    HStack {
+                        // ボーナス
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "ボーナス",
+                            count: $ggo.grenadeCountBonus,
+                            color: .personalSummerLightRed,
+                            minusBool: $ggo.minusCheck) {
+                                ggo.grenadeSumFunc()
+                            }
+                        // イエスマム
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "イエスマム",
+                            count: $ggo.grenadeCountYesMam,
+                            color: .personalSummerLightPurple,
+                            minusBool: $ggo.minusCheck) {
+                                ggo.grenadeSumFunc()
+                            }
+                        // その他
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "その他",
+                            count: $ggo.grenadeCountOther,
+                            color: .personalSummerLightBlue,
+                            minusBool: $ggo.minusCheck) {
+                                ggo.grenadeSumFunc()
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            ggoView95Ci(
+                                ggo: ggo,
+                                selection: 5,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        ggoViewBayes(
+                            ggo: ggo,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("グレネードジャッジ報酬")
+            }
+
             // ---- 天国選択率
             Section {
                 // 天国選択率

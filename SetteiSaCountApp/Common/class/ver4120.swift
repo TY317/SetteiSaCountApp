@@ -72,3 +72,19 @@ struct tipVer4120SeiyaShugoSeiza: Tip {
         Image(systemName: "exclamationmark.bubble")
     }
 }
+
+
+//////////////////
+// Tip：GGO 通常時 グレネードジャッジ報酬
+//////////////////
+struct tipVer4120GgoGrenade: Tip {
+    var title: Text {
+        Text("機能更新")
+    }
+    var message: Text? {
+        Text("グレネードジャッジ報酬のカウント機能を追加しました")
+    }
+    var image: Image? {
+        Image(systemName: "exclamationmark.bubble")
+    }
+}
