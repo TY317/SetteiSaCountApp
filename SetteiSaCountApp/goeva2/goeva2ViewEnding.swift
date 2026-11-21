@@ -94,7 +94,7 @@ struct goeva2ViewEnding: View {
 
             // エピソード映像
             Section {
-                // 参考情報）エピソードの出現順
+                // 参考情報）エピソードでの示唆
                 unitLinkButtonViewBuilder(sheetTitle: "エピソードでの示唆") {
                     VStack(spacing: 20) {
                         VStack(alignment: .leading) {
@@ -149,7 +149,7 @@ struct goeva2ViewEnding: View {
                                         "救いし者、渚カヲル",
                                     ],
                                     maxWidth: 200,
-                                    lineList: [1,1,2],
+                                    lineList: [1,1,1],
                                 )
                                 unitTableString(
                                     columTitle: "示唆",
@@ -159,7 +159,7 @@ struct goeva2ViewEnding: View {
                                         "設定6濃厚",
                                     ],
                                     maxWidth: 150,
-                                    lineList: [1,1,2],
+                                    lineList: [1,1,1],
                                 )
                             }
                         }
