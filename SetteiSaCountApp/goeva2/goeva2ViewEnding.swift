@@ -91,6 +91,84 @@ struct goeva2ViewEnding: View {
             } header: {
                 Text("カウント結果")
             }
+
+            // エピソード映像
+            Section {
+                // 参考情報）エピソードでの示唆
+                unitLinkButtonViewBuilder(sheetTitle: "エピソードでの示唆") {
+                    VStack(spacing: 20) {
+                        VStack(alignment: .leading) {
+                            Text("・エピソードはエンディング1回につき1つで、順番は初回のエンディング移行時に決まる")
+                            Text("・3種類すべてが出るまで再抽選されず、通常時を挟んでも順番は引き継がれる")
+                            Text("・過去のエピソードはメニュー画面のエンディング履歴で確認できる")
+                            Text("・特殊エピソードは毎回発生を抽選し、出現すれば特定の設定が濃厚")
+                        }
+                        VStack {
+                            Text("[通常エピソード 順番での示唆]")
+                                .font(.title3)
+                            HStack(spacing: 0) {
+                                unitTableString(
+                                    columTitle: "1回目→2回目→3回目",
+                                    stringList: [
+                                        "二人のゲンドウ\n→奪われた3式機龍\n→真相に近づく男",
+                                        "二人のゲンドウ\n→真相に近づく男\n→奪われた3式機龍",
+                                        "奪われた3式機龍\n→二人のゲンドウ\n→真相に近づく男",
+                                        "奪われた3式機龍\n→真相に近づく男\n→二人のゲンドウ",
+                                        "真相に近づく男\n→二人のゲンドウ\n→奪われた3式機龍",
+                                        "真相に近づく男\n→奪われた3式機龍\n→二人のゲンドウ",
+                                    ],
+                                    maxWidth: 200,
+                                    lineList: [3,3,3,3,3,3],
+                                    contentFont: .subheadline,
+                                )
+                                unitTableString(
+                                    columTitle: "示唆",
+                                    stringList: [
+                                        "奇数示唆",
+                                        "奇数かつ高設定示唆 弱",
+                                        "偶数示唆",
+                                        "偶数かつ高設定示唆 弱",
+                                        "奇数かつ高設定示唆 強",
+                                        "偶数かつ高設定示唆 強",
+                                    ],
+                                    maxWidth: 150,
+                                    lineList: [3,3,3,3,3,3],
+                                    contentFont: .subheadline,
+                                )
+                            }
+                        }
+                        VStack {
+                            Text("[特殊エピソード]")
+                                .font(.title3)
+                            HStack(spacing: 0) {
+                                unitTableString(
+                                    columTitle: "",
+                                    stringList: [
+                                        "ひとときの休暇",
+                                        "大花火大会",
+                                        "救いし者、渚カヲル",
+                                    ],
+                                    maxWidth: 200,
+                                    lineList: [1,1,1],
+                                )
+                                unitTableString(
+                                    columTitle: "示唆",
+                                    stringList: [
+                                        "偶数設定濃厚",
+                                        "設定4以上濃厚",
+                                        "設定6濃厚",
+                                    ],
+                                    maxWidth: 150,
+                                    lineList: [1,1,1],
+                                )
+                            }
+                        }
+                    }
+                }
+                .popoverTip(tipVer4120Goeva2Episode())
+            } header: {
+                Text("エピソード映像")
+            }
         }
         // //// バッジのリセット
         .resetBadgeOnAppear($common.goeva2MenuEndingBadge)

@@ -28,6 +28,81 @@ struct seiyaViewNormal: View {
     @State var lazyVGridCount: Int = 3
     var body: some View {
         List {
+            // ---- 規定周期到達時のAT直撃
+            Section {
+                // AT直撃率
+                unitResultRatioPercent2Line(
+                    title: "AT直撃率",
+                    count: $seiya.cycleAtCountHit,
+                    bigNumber: $seiya.cycleAtCountCycle,
+                    numberofDicimal: 0
+                )
+                .popoverTip(tipVer4120SeiyaCycleAt())
+
+                // 参考情報）規定周期到達時のAT直撃
+                unitLinkButtonViewBuilder(sheetTitle: "規定周期到達時のAT直撃") {
+                    VStack(alignment: .leading) {
+//                        Text("・一輝の加護以外のときに、規定周期到達時のCZがATへ書き換わる割合")
+                        Text("・一輝の加護中はこの抽選を経ずにAT直撃となる")
+                    }
+                    HStack(spacing: 0) {
+                        unitTableSettingIndex()
+                        unitTablePercent(
+                            columTitle: "AT直撃",
+                            percentList: seiya.ratioCycleAt,
+                            numberofDicimal: 1,
+                        )
+                    }
+                }
+
+                // カウント
+                DisclosureGroup {
+                    // 注意書き
+                    unitLabelCautionText {
+                        Text("・規定周期に到達するたびに「周期到達」を、そこでATに直撃したら「AT直撃」も押してください\n・一輝の加護中は除外してください")
+                    }
+                    // カウントボタン横並び
+                    HStack {
+                        // 周期到達
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "周期到達",
+                            count: $seiya.cycleAtCountCycle,
+                            color: .personalSummerLightBlue,
+                            minusBool: $seiya.minusCheck) {
+                            }
+                        // AT直撃
+                        unitCountButtonWithoutRatioWithFunc(
+                            title: "AT直撃",
+                            count: $seiya.cycleAtCountHit,
+                            color: .personalSummerLightRed,
+                            minusBool: $seiya.minusCheck) {
+                            }
+                    }
+
+                    // //// 95%信頼区間グラフへのリンク
+                    unitNaviLink95Ci(
+                        Ci95view: AnyView(
+                            seiyaView95Ci(
+                                seiya: seiya,
+                                selection: 4,
+                            )
+                        )
+                    )
+
+                    // //// 設定期待値へのリンク
+                    unitNaviLinkBayes {
+                        seiyaViewBayes(
+                            seiya: seiya,
+                        )
+                    }
+                } label: {
+                    Text("カウント")
+                        .foregroundStyle(Color.blue)
+                }
+            } header: {
+                Text("規定周期到達時のAT直撃")
+            }
+
             // レア役
             Section {
                 // レア役停止系
@@ -73,8 +148,57 @@ struct seiyaViewNormal: View {
                         }
                     }
                 }
+
+                // 参考情報）設定変更時の振分け
+                unitLinkButtonViewBuilder(sheetTitle: "設定変更時の振分け") {
+                    VStack(spacing: 20) {
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercentVer2(
+                                columTitle: "加護なし",
+                                percentList: [60.9,57.8,54.3,49.2],
+                                numberofDicimal: 0,
+                                lineList: [1,1,1,3],
+                            )
+                            unitTablePercentVer2(
+                                columTitle: "星矢",
+                                percentList: [5.9,6.3,7.8],
+                                numberofDicimal: 1,
+                                lineList: [1,1,4],
+                            )
+                            unitTablePercentVer2(
+                                columTitle: "氷河",
+                                percentList: [14.8],
+                                numberofDicimal: 0,
+                                lineList: [6],
+                            )
+                        }
+                        HStack(spacing: 0) {
+                            unitTableSettingIndex()
+                            unitTablePercentVer2(
+                                columTitle: "瞬",
+                                percentList: [11.7],
+                                numberofDicimal: 0,
+                                lineList: [6],
+                            )
+                            unitTablePercentVer2(
+                                columTitle: "紫龍",
+                                percentList: [3.5,5.1,6.3,10.2],
+                                numberofDicimal: 1,
+                                lineList: [1,1,1,3],
+                            )
+                            unitTablePercentVer2(
+                                columTitle: "一輝",
+                                percentList: [3.1,4.3,5.1,6.3],
+                                numberofDicimal: 1,
+                                lineList: [1,1,1,3],
+                            )
+                        }
+                    }
+                }
+                .popoverTip(tipVer4120SeiyaShugoSeiza())
             } header: {
-                Text("守護星座")
+                Text("守護星座の加護")
             }
 
             // ---- カード演出

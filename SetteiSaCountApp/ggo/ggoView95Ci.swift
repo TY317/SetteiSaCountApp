@@ -67,6 +67,42 @@ struct ggoView95Ci: View {
                 )
             )
             .tag(4)
+
+            // グレネードジャッジ報酬 ボーナス
+            unitListSection95Ci(
+                grafTitle: "グレネードジャッジ報酬 ボーナス",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ggo.grenadeCountBonus,
+                        bigNumber: $ggo.grenadeCountSum,
+                        setting1Percent: ggo.ratioGrenadeBonus[0],
+                        setting2Percent: ggo.ratioGrenadeBonus[1],
+                        setting3Percent: ggo.ratioGrenadeBonus[2],
+                        setting4Percent: ggo.ratioGrenadeBonus[3],
+                        setting5Percent: ggo.ratioGrenadeBonus[4],
+                        setting6Percent: ggo.ratioGrenadeBonus[5]
+                    )
+                )
+            )
+            .tag(5)
+
+            // グレネードジャッジ報酬 イエスマム
+            unitListSection95Ci(
+                grafTitle: "グレネードジャッジ報酬 イエスマム",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $ggo.grenadeCountYesMam,
+                        bigNumber: $ggo.grenadeCountSum,
+                        setting1Percent: ggo.ratioGrenadeYesMam[0],
+                        setting2Percent: ggo.ratioGrenadeYesMam[1],
+                        setting3Percent: ggo.ratioGrenadeYesMam[2],
+                        setting4Percent: ggo.ratioGrenadeYesMam[3],
+                        setting5Percent: ggo.ratioGrenadeYesMam[4],
+                        setting6Percent: ggo.ratioGrenadeYesMam[5]
+                    )
+                )
+            )
+            .tag(6)
         }
         // //// firebaseログ
         .onAppear {

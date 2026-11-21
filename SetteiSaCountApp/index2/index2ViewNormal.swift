@@ -140,7 +140,6 @@ struct index2ViewNormal: View {
                 unitLinkButtonViewBuilder(sheetTitle: "前兆発生ゲーム数での法則") {
                     index2TableZenchoGame()
                 }
-                .popoverTip(tipVer450Index2ZenchoGame())
             } header: {
                 Text("モード")
             }

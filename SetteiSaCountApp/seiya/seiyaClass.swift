@@ -14,7 +14,14 @@ class Seiya: ObservableObject {
     // 通常時
     // -------
 
+    // 規定周期到達時のAT直撃
+    let ratioCycleAt: [Double] = [0.8,1.6,2.3,3.9,3.9,6.3]
+    @AppStorage("seiyaCycleAtCountCycle") var cycleAtCountCycle: Int = 0
+    @AppStorage("seiyaCycleAtCountHit") var cycleAtCountHit: Int = 0
+
     func resetNormal() {
+        cycleAtCountCycle = 0
+        cycleAtCountHit = 0
         minusCheck = false
     }
 
@@ -295,6 +302,8 @@ class SeiyaMemory1: ObservableObject {
     @AppStorage("seiyaLampCount5Memory1") var lampCount5: Int = 0
     @AppStorage("seiyaLampCount6Memory1") var lampCount6: Int = 0
     @AppStorage("seiyaLampCountSumMemory1") var lampCountSum: Int = 0
+    @AppStorage("seiyaCycleAtCountCycleMemory1") var cycleAtCountCycle: Int = 0
+    @AppStorage("seiyaCycleAtCountHitMemory1") var cycleAtCountHit: Int = 0
     @AppStorage("seiyaMemoMemory1") var memo = ""
     @AppStorage("seiyaDateMemory1") var dateDouble = 0.0
 }
@@ -335,6 +344,8 @@ class SeiyaMemory2: ObservableObject {
     @AppStorage("seiyaLampCount5Memory2") var lampCount5: Int = 0
     @AppStorage("seiyaLampCount6Memory2") var lampCount6: Int = 0
     @AppStorage("seiyaLampCountSumMemory2") var lampCountSum: Int = 0
+    @AppStorage("seiyaCycleAtCountCycleMemory2") var cycleAtCountCycle: Int = 0
+    @AppStorage("seiyaCycleAtCountHitMemory2") var cycleAtCountHit: Int = 0
     @AppStorage("seiyaMemoMemory2") var memo = ""
     @AppStorage("seiyaDateMemory2") var dateDouble = 0.0
 }
@@ -375,6 +386,8 @@ class SeiyaMemory3: ObservableObject {
     @AppStorage("seiyaLampCount5Memory3") var lampCount5: Int = 0
     @AppStorage("seiyaLampCount6Memory3") var lampCount6: Int = 0
     @AppStorage("seiyaLampCountSumMemory3") var lampCountSum: Int = 0
+    @AppStorage("seiyaCycleAtCountCycleMemory3") var cycleAtCountCycle: Int = 0
+    @AppStorage("seiyaCycleAtCountHitMemory3") var cycleAtCountHit: Int = 0
     @AppStorage("seiyaMemoMemory3") var memo = ""
     @AppStorage("seiyaDateMemory3") var dateDouble = 0.0
 }

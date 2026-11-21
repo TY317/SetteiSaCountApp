@@ -91,7 +91,6 @@ struct worldDaiStarViewComeBack: View {
                     Text("カウント")
                         .foregroundStyle(Color.blue)
                 }
-                .popoverTip(tipVer450WorldDaiStarComeBack())
             } header: {
                 Text("上位ST後の引き戻しゾーン移行率")
             }

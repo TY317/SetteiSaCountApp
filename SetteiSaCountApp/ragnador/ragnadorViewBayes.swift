@@ -1,0 +1,358 @@
+//
+//  ragnadorViewBayes.swift
+//  SetteiSaCountApp
+//
+//  Created by 横田徹.
+//
+
+import SwiftUI
+
+struct ragnadorViewBayes: View {
+    @ObservedObject var ragnador: Ragnador
+
+    // 機種ごとに見直し
+    let settingList: [Int] = [1, 2, 3, 4, 5, 6]   // その機種の設定段階
+    let payoutList: [Double] = [97.6, 98.8, 100.3, 105.7, 110.5, 114.5]
+
+    // 全機種共通
+    @EnvironmentObject var common: commonVar
+    @EnvironmentObject var bayes: Bayes
+    @EnvironmentObject var viewModel: InterstitialViewModel
+    @State var weakCherryUpEnable: Bool = true
+    @State var rareHitEnable: Bool = true
+    @State var firstHitCzEnable: Bool = true
+    @State var firstHitAtEnable: Bool = true
+    @State var enemyTableEnable: Bool = true
+    @State var voiceEnable: Bool = true
+    @State var guessCustom1: [Int] = []   // カスタム配分1用の入れ物
+    @State var guessCustom2: [Int] = []   // カスタム配分2用の入れ物
+    @State var guessCustom3: [Int] = []   // カスタム配分3用の入れ物
+    @State var resultGuess: [Double] = []   // 計算結果の入れ物
+    @State var isShowResult: Bool = false   // 結果シートの表示トリガー
+    @State var over2Check: Bool = false   // 2以上濃厚
+    @State var over3Check: Bool = false   // 3以上濃厚
+    @State var over4Check: Bool = false   // 4以上濃厚
+    @State var over5Check: Bool = false   // 5以上濃厚
+    @State var over6Check: Bool = false   // 6以上濃厚
+    @State var selectedBeforeGuessPattern: String = "デフォルト"
+    var body: some View {
+        List {
+            // //// STEP1
+            bayesSubStep1Section(
+                bayes: bayes,
+                settingList: self.settingList,
+                guessCustom1: self.$guessCustom1,
+                guessCustom2: self.$guessCustom2,
+                guessCustom3: self.$guessCustom3,
+                selectedBeforeGuessPattern: self.$selectedBeforeGuessPattern,
+            )
+
+            // //// STEP2
+            bayesSubStep2Section {
+                // ここに小役確率など機種固有の判別要素トグルを後で追加する
+
+                // 弱チェリーの状態昇格率
+                unitToggleWithQuestion(enable: self.$weakCherryUpEnable, title: "弱🍒での状態昇格率")
+
+                // レア役からのCZ・AT当選率
+                unitToggleWithQuestion(enable: self.$rareHitEnable, title: "レア役からのCZ・AT当選率")
+
+                // 初当り
+                unitToggleWithQuestion(enable: self.$firstHitCzEnable, title: "CZ確率")
+                unitToggleWithQuestion(enable: self.$firstHitAtEnable, title: "AT初当り確率")
+                unitToggleWithQuestion(enable: self.$enemyTableEnable, title: "敵選択テーブル") {
+                    unitExView5body2image(
+                        title: "敵選択テーブル",
+                        textBody1: "・初当りページの履歴入力で登録したCZの敵の並びから、敵選択テーブル（テーブル7・通常テーブルの玄武）の設定差を反映します",
+                        textBody2: "・カウント入力では反映されません"
+                    )
+                }
+
+                // エンディング
+                unitToggleWithQuestion(enable: self.$voiceEnable, title: "エンディング中ボイス") {
+                    unitExView5body2image(
+                        title: "エンディング中ボイス",
+                        textBody1: "・確定系のみ反映させます"
+                    )
+                }
+
+                // トロフィー
+                DisclosureGroup("ユニバプレート") {
+                    unitToggleWithQuestion(enable: self.$over2Check, title: "銅")
+                    unitToggleWithQuestion(enable: self.$over3Check, title: "銀")
+                    unitToggleWithQuestion(enable: self.$over4Check, title: "金")
+                    unitToggleWithQuestion(enable: self.$over5Check, title: "花火柄")
+                    unitToggleWithQuestion(enable: self.$over6Check, title: "虹")
+                }
+            }
+
+            // //// STEP3
+            bayesSubStep3Section(viewModel: viewModel) {
+                self.resultGuess = bayesRatio()
+            }
+        }
+        // //// バッジのリセット
+        .resetBadgeOnAppear($common.ragnadorMenuBayesBadge)
+        // //// firebaseログ
+        .onAppear {
+            let screenClass = String(describing: Self.self)
+            logEventFirebaseScreen(
+                screenName: ragnador.machineName,
+                screenClass: screenClass
+            )
+        }
+        .navigationTitle("設定期待値")
+        .navigationBarTitleDisplayMode(.inline)
+        // //// 画面表示時の処理
+        .bayesOnAppear(
+            bayes: bayes,
+            viewModel: viewModel,
+            settingList: self.settingList,
+            guessCustom1: self.$guessCustom1,
+            guessCustom2: self.$guessCustom2,
+            guessCustom3: self.$guessCustom3
+        )
+        // //// 計算結果シートの表示発火処理
+        .onChange(of: viewModel.isAdDismissed) {
+            if viewModel.isAdDismissed {
+                self.isShowResult = true
+            }
+        }
+        .sheet(isPresented: self.$isShowResult) {
+            bayesResultView(
+                settingList: self.settingList,
+                resultGuess: self.resultGuess,
+                payoutList: self.payoutList,
+            )
+                .presentationDetents([.large])
+        }
+        // //// ツールバー
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                unitToolbarButtonCustomSheet(
+                    settingList: self.settingList,
+                    bayes: bayes,
+                    guessCustom1: self.$guessCustom1,
+                    guessCustom2: self.$guessCustom2,
+                    guessCustom3: self.$guessCustom3,
+                    selectedBeforeGuessPattern: self.$selectedBeforeGuessPattern,
+                )
+            }
+            ToolbarItem(placement: .automatic) {
+                bayesInfoButtonBayes()
+            }
+        }
+    }
+    // //// 事後確率の算出
+    private func bayesRatio() -> [Double] {
+        // ここに小役確率など機種固有の対数尤度を後で追加し、下の logPostSum に足す
+
+        // 弱チェリーの状態昇格率（昇格なし・高確・超高確の3択。昇格なしは残余バケット）
+        var logPostWeakCherryUp: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.weakCherryUpEnable {
+            logPostWeakCherryUp = logPostPercentMulti(
+                countList: [
+                    ragnador.weakCherryUpCountHigh,
+                    ragnador.weakCherryUpCountSuperHigh,
+                ],
+                ratioList: [
+                    ragnador.ratioWeakCherryUpHigh,
+                    ragnador.ratioWeakCherryUpSuperHigh,
+                ],
+                bigNumber: ragnador.weakCherryCount
+            )
+        }
+
+        // レア役からのCZ・AT当選率
+        // CZ・ATが両方カウント対象の役は「CZ／AT／どちらでもない」の多項、ATだけの役（🍉・通常の極チャンス目）は二項
+        var logPostRareHit: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.rareHitEnable {
+            // 通常状態
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentBino(
+                    ratio: ragnador.ratioRareAtNormalSuika,
+                    Count: ragnador.rareAtCountNormalSuika,
+                    bigNumber: ragnador.rareCountNormalSuika
+                ),
+            ])
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentMulti(
+                    countList: [ragnador.rareCzCountNormalChance, ragnador.rareAtCountNormalChance],
+                    ratioList: [ragnador.ratioRareCzNormalChance, ragnador.ratioRareAtNormalChance],
+                    bigNumber: ragnador.rareCountNormalChance
+                ),
+            ])
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentMulti(
+                    countList: [ragnador.rareCzCountNormalKyo, ragnador.rareAtCountNormalKyo],
+                    ratioList: [ragnador.ratioRareCzNormalKyo, ragnador.ratioRareAtNormalKyo],
+                    bigNumber: ragnador.rareCountNormalKyo
+                ),
+            ])
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentBino(
+                    ratio: ragnador.ratioRareAtNormalGoku,
+                    Count: ragnador.rareAtCountNormalGoku,
+                    bigNumber: ragnador.rareCountNormalGoku
+                ),
+            ])
+            // 高確
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentBino(
+                    ratio: ragnador.ratioRareAtHighSuika,
+                    Count: ragnador.rareAtCountHighSuika,
+                    bigNumber: ragnador.rareCountHighSuika
+                ),
+            ])
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentMulti(
+                    countList: [ragnador.rareCzCountHighChance, ragnador.rareAtCountHighChance],
+                    ratioList: [ragnador.ratioRareCzHighChance, ragnador.ratioRareAtHighChance],
+                    bigNumber: ragnador.rareCountHighChance
+                ),
+            ])
+            logPostRareHit = arraySumDouble([
+                logPostRareHit,
+                logPostPercentMulti(
+                    countList: [ragnador.rareCzCountHighKyo, ragnador.rareAtCountHighKyo],
+                    ratioList: [ragnador.ratioRareCzHighKyo, ragnador.ratioRareAtHighKyo],
+                    bigNumber: ragnador.rareCountHighKyo
+                ),
+            ])
+        }
+
+        // CZ確率
+        var logPostFirstHitCz: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitCzEnable {
+            logPostFirstHitCz = logPostDenoBino(
+                ratio: ragnador.ratioFirstHitCz,
+                Count: ragnador.activeFirstHitCountCz,
+                bigNumber: ragnador.activeNormalGame
+            )
+        }
+
+        // AT初当り確率
+        var logPostFirstHitAt: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.firstHitAtEnable {
+            logPostFirstHitAt = logPostDenoBino(
+                ratio: ragnador.ratioFirstHitAt,
+                Count: ragnador.activeFirstHitCountAt,
+                bigNumber: ragnador.activeNormalGame
+            )
+        }
+
+        // 敵選択テーブル（履歴入力のときだけ。区間ごとの敵の並びの確率をテーブルで重みづけ）
+        var logPostEnemyTable: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.enemyTableEnable && ragnador.isHistoryInputMode {
+            for interval in ragnador.enemyValidIntervalList {
+                for setting in self.settingList.indices {
+                    let probability = ragnador.enemyIntervalProbability(interval: interval, setting: setting)
+                    logPostEnemyTable[setting] += log(max(probability, 1e-300))
+                }
+            }
+        }
+
+        // エンディング
+        // 確定系（設定2・4・5以上／設定6濃厚）のみ渡し、示唆系は残余バケットに吸収させる
+        var logPostVoice: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.voiceEnable {
+            logPostVoice = logPostPercentMulti(
+                countList: [
+                    ragnador.voiceCount5,
+                    ragnador.voiceCount6,
+                    ragnador.voiceCount7,
+                    ragnador.voiceCount8,
+                ],
+                ratioList: [
+                    ragnador.ratioVoiceOver2,
+                    ragnador.ratioVoiceOver4,
+                    ragnador.ratioVoiceOver5,
+                    ragnador.ratioVoiceOver6,
+                ],
+                bigNumber: ragnador.voiceCountSum
+            )
+        }
+
+        // トロフィー
+        var logPostTrophy: [Double] = [Double](repeating: 0, count: self.settingList.count)
+        if self.over2Check {
+            logPostTrophy[0] = -Double.infinity
+        }
+        if self.over3Check {
+            logPostTrophy[0] = -Double.infinity
+            logPostTrophy[1] = -Double.infinity
+        }
+        if self.over4Check {
+            logPostTrophy[0] = -Double.infinity
+            logPostTrophy[1] = -Double.infinity
+            logPostTrophy[2] = -Double.infinity
+        }
+        if self.over5Check {
+            logPostTrophy[0] = -Double.infinity
+            logPostTrophy[1] = -Double.infinity
+            logPostTrophy[2] = -Double.infinity
+            logPostTrophy[3] = -Double.infinity
+        }
+        if self.over6Check {
+            logPostTrophy[0] = -Double.infinity
+            logPostTrophy[1] = -Double.infinity
+            logPostTrophy[2] = -Double.infinity
+            logPostTrophy[3] = -Double.infinity
+            logPostTrophy[4] = -Double.infinity
+        }
+
+        // 事前確率の対数尤度
+        let logPostBefore = logPostBeforeFunc(
+            guess: selectedGuess(
+                pattern: self.selectedBeforeGuessPattern
+            )
+        )
+
+        // 判別要素の尤度合算
+        let logPostSum: [Double] = arraySumDouble([
+            logPostWeakCherryUp,
+            logPostRareHit,
+            logPostFirstHitCz,
+            logPostFirstHitAt,
+            logPostEnemyTable,
+            logPostVoice,
+            logPostTrophy,
+            logPostBefore,
+        ])
+
+        // 事後確率の算出
+        let afterGuess = bayesResultRatioFunc(logPost: logPostSum)
+
+        return afterGuess
+    }
+
+    // //// 選択した設定配分配列を返す
+    func selectedGuess(pattern: String) -> [Int] {
+        switch pattern {
+        case bayes.guessPatternList[0]: return bayes.guess6Default
+        case bayes.guessPatternList[1]: return bayes.guess6JugDefault
+        case bayes.guessPatternList[2]: return bayes.guess6Evenly
+        case bayes.guessPatternList[3]: return bayes.guess6Half
+        case bayes.guessPatternList[4]: return bayes.guess6Quater
+        case bayes.guessPatternList[5]: return self.guessCustom1
+        case bayes.guessPatternList[6]: return self.guessCustom2
+        case bayes.guessPatternList[7]: return self.guessCustom3
+        default: return bayes.guess6Default
+        }
+    }
+}
+
+#Preview {
+    ragnadorViewBayes(
+        ragnador: Ragnador(),
+    )
+    .environmentObject(commonVar())
+    .environmentObject(Bayes())
+    .environmentObject(InterstitialViewModel())
+}

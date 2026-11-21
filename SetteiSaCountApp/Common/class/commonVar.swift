@@ -96,6 +96,7 @@ class commonVar: ObservableObject {
     // 新トップページ用
     // ----------
     let initMachine: [Machine] = [
+        Machine(id: "5079", name: "ラグナドール", fullName: "ラグナドール", iconName: "ragnadorMachineIcon", btBadge: false, maker: "UNIVERSAL"),
         Machine(id: "5120", name: "Vivy", fullName: "Vivy", iconName: "vivyMachineIcon", btBadge: false, maker: "大都技研"),
         Machine(id: "5073", name: "GGO", fullName: "ソードアート・オンライン オルタナティブ ガンゲイル・オンライン", iconName: "ggoMachineIcon", btBadge: false, maker: "京楽"),
         Machine(id: "5104", name: "聖闘士星矢", fullName: "聖闘士星矢 黄金十二宮", iconName: "seiyaMachineIcon", btBadge: false, maker: "SANYO"),
@@ -381,6 +382,14 @@ class commonVar: ObservableObject {
     @AppStorage("mhrsbMenuScreenBadge") var mhrsbMenuScreenBadge: String = "none"
     @AppStorage("mhrsbMenuEndingBadge") var mhrsbMenuEndingBadge: String = "none"
     @AppStorage("mhrsbMenuBzScenarioBadge") var mhrsbMenuBzScenarioBadge: String = "none"
+
+    // ---- ラグナドール
+    @AppStorage("ragnadorMenuNormalBadge") var ragnadorMenuNormalBadge: String = "none"
+    @AppStorage("ragnadorMenuFirstHitBadge") var ragnadorMenuFirstHitBadge: String = "none"
+    @AppStorage("ragnadorMenuBayesBadge") var ragnadorMenuBayesBadge: String = "none"
+    @AppStorage("ragnadorMenuScreenBadge") var ragnadorMenuScreenBadge: String = "none"
+    @AppStorage("ragnadorMenuEndingBadge") var ragnadorMenuEndingBadge: String = "none"
+    @AppStorage("ragnadorMenuEndVoiceBadge") var ragnadorMenuEndVoiceBadge: String = "none"
 
     // ---- Vivy
     @AppStorage("vivyMenuNormalBadge") var vivyMenuNormalBadge: String = "none"
@@ -866,6 +875,10 @@ class commonVar: ObservableObject {
         // ver4.4.0 の移行処理から引き継ぎ
         machines.updateMachineIsUnlocked(id: "5020", isUnlocked: true)
         machines.updateMachineIsUnlocked(id: "5068", isUnlocked: true)
+        // ver4.5.0 の移行処理から引き継ぎ
+        machines.updateMachineIsUnlocked(id: "5027", isUnlocked: true)
+        machines.updateMachineIsUnlocked(id: "5030", isUnlocked: true)
+        machines.updateMachineIsUnlocked(id: "5028", isUnlocked: true)
         hokutoTenseiisUnlocked = true
         tekken6isUnlocked = true
         mushotenisUnlocked = true
@@ -890,6 +903,32 @@ class commonVar: ObservableObject {
     // //////////////////////////////////////
     // バージョンごとの処理
     // //////////////////////////////////////
+    func ver4120FirstLaunch() {
+        let targetVersion: String = "4.12.0"
+        if firstLaunchAppVersion != nil {
+            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
+            if isVersionCompare(lastVersion, lessThan: targetVersion) {
+                print("\(targetVersion)未満からアップデートされました")
+                // ここに更新時のバッジ付与等を後で追記
+                machines.updateMachineBadgeStatus(id: "5079", newStatus: "new")
+                machines.updateMachineIsUnlocked(id: "5079", isUnlocked: false)
+                // ゴジエヴァ2
+                machines.updateMachineBadgeStatus(id: "5119", newStatus: "update")
+                goeva2MenuEndingBadge = "update"
+                // 聖闘士星矢
+                machines.updateMachineBadgeStatus(id: "5104", newStatus: "update")
+                seiyaMenuNormalBadge = "update"
+                // GGO
+                machines.updateMachineBadgeStatus(id: "5073", newStatus: "update")
+                ggoMenuNormalBadge = "update"
+            } else {
+                print("\(targetVersion)以上です")
+            }
+        } else {
+            print("初回起動です")
+        }
+    }
+
     func ver4110FirstLaunch() {
         let targetVersion: String = "4.11.0"
         if firstLaunchAppVersion != nil {
@@ -1078,42 +1117,6 @@ class commonVar: ObservableObject {
                 sao2MenuNormalBadge = "update"
                 machines.updateMachineBadgeStatus(id: "4930", newStatus: "update")
                 kabaneriUnatoMenuHighAtBadge = "new"
-            }
-            else {
-                print("\(targetVersion)以上です")
-            }
-        } else {
-            print("初回起動です")
-        }
-    }
-
-    func ver450FirstLaunch() {
-        // 比較対象となるバージョンを設定
-        let targetVersion: String = "4.5.0"
-
-        if firstLaunchAppVersion != nil {
-            let lastVersion = lastLaunchAppVersion ?? "0.0.0"
-            if isVersionCompare(lastVersion, lessThan: targetVersion) {
-                print("\(targetVersion)未満からアップデートされました")
-                // ここに更新時のバッジ付与等を後で追記
-                machines.updateMachineBadgeStatus(id: "5027", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5027", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "5030", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5030", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "5028", newStatus: "new")
-                machines.updateMachineIsUnlocked(id: "5028", isUnlocked: false)
-                machines.updateMachineBadgeStatus(id: "5068", newStatus: "update")
-                streetFighter6MenuFirstHitBadge = "update"
-                machines.updateMachineBadgeStatus(id: "5053", newStatus: "update")
-                index2MenuNormalBadge = "update"
-                machines.updateMachineBadgeStatus(id: "5025", newStatus: "update")
-                sao2MenuFirstHitBadge = "update"
-                machines.updateMachineBadgeStatus(id: "5055", newStatus: "update")
-                worldDaiStarMenuComeBackBadge = "new"
-                machines.updateMachineBadgeStatus(id: "5019", newStatus: "update")
-                karakuri2MenuDuringAtBadge = "update"
-                karakuri2MenuEndingBadge = "new"
-                worldDaiStarMenuEndingBadge = "update"
             }
             else {
                 print("\(targetVersion)以上です")

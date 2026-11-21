@@ -49,6 +49,24 @@ struct seiyaView95Ci: View {
                 )
             )
             .tag(3)
+
+            // 規定周期到達時のAT直撃
+            unitListSection95Ci(
+                grafTitle: "規定周期到達時のAT直撃",
+                grafView: AnyView(
+                    unitChart95CiPercent(
+                        currentCount: $seiya.cycleAtCountHit,
+                        bigNumber: $seiya.cycleAtCountCycle,
+                        setting1Percent: seiya.ratioCycleAt[0],
+                        setting2Percent: seiya.ratioCycleAt[1],
+                        setting3Percent: seiya.ratioCycleAt[2],
+                        setting4Percent: seiya.ratioCycleAt[3],
+                        setting5Percent: seiya.ratioCycleAt[4],
+                        setting6Percent: seiya.ratioCycleAt[5]
+                    )
+                )
+            )
+            .tag(4)
         }
         // //// firebaseログ
         .onAppear {
