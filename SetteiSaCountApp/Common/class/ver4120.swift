@@ -50,7 +50,7 @@ struct tipVer4120Goeva2Episode: Tip {
         Text("情報更新")
     }
     var message: Text? {
-        Text("エピソード映像の情報を追加しました")
+        Text("エピソード映像の出現順と特殊エピソードの示唆を追加しました")
     }
     var image: Image? {
         Image(systemName: "exclamationmark.bubble")
