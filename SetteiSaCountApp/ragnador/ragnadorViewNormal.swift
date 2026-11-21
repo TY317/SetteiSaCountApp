@@ -40,10 +40,10 @@ struct ragnadorViewNormal: View {
             // ---- 弱チェリーの状態昇格率
             Section {
                 HStack {
-                    // 高確以上
+                    // 高確
                     unitResultRatioPercent2Line(
                         title: "高確移行",
-                        count: $ragnador.weakCherryUpCountHighOver,
+                        count: $ragnador.weakCherryUpCountHigh,
                         bigNumber: $ragnador.weakCherryCount,
                         numberofDicimal: 0,
                         spacerBool: false,
@@ -53,7 +53,7 @@ struct ragnadorViewNormal: View {
                         title: "超高確移行",
                         count: $ragnador.weakCherryUpCountSuperHigh,
                         bigNumber: $ragnador.weakCherryCount,
-                        numberofDicimal: 1,
+                        numberofDicimal: 0,
                         spacerBool: false,
                     )
                 }
@@ -94,7 +94,6 @@ struct ragnadorViewNormal: View {
                             count: $ragnador.weakCherryCount,
                             color: .personalSummerLightRed,
                             minusBool: $ragnador.minusCheck) {
-                                ragnador.weakCherryUpSumFunc()
                             }
                         // 高確
                         unitCountButtonWithoutRatioWithFunc(
@@ -102,7 +101,6 @@ struct ragnadorViewNormal: View {
                             count: $ragnador.weakCherryUpCountHigh,
                             color: .personalSummerLightGreen,
                             minusBool: $ragnador.minusCheck) {
-                                ragnador.weakCherryUpSumFunc()
                             }
                         // 超高確
                         unitCountButtonWithoutRatioWithFunc(
@@ -110,7 +108,6 @@ struct ragnadorViewNormal: View {
                             count: $ragnador.weakCherryUpCountSuperHigh,
                             color: .personalSummerLightPurple,
                             minusBool: $ragnador.minusCheck) {
-                                ragnador.weakCherryUpSumFunc()
                             }
                     }
 

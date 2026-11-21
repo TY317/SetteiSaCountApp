@@ -18,16 +18,9 @@ class Ragnador: ObservableObject {
     let ratioWeakCherryUpNone: [Double] = [40.6,37.5,34.4,25.0,19.5,17.2]
     let ratioWeakCherryUpHigh: [Double] = [50.0,51.6,53.1,58.6,62.5,64.1]
     let ratioWeakCherryUpSuperHigh: [Double] = [9.4,10.9,12.5,16.4,18.0,18.8]
-    // 高確以上（高確＋超高確）
-    let ratioWeakCherryUpHighOver: [Double] = [59.4,62.5,65.6,75.0,80.5,82.8]
     @AppStorage("ragnadorWeakCherryCount") var weakCherryCount: Int = 0
     @AppStorage("ragnadorWeakCherryUpCountHigh") var weakCherryUpCountHigh: Int = 0
     @AppStorage("ragnadorWeakCherryUpCountSuperHigh") var weakCherryUpCountSuperHigh: Int = 0
-    @AppStorage("ragnadorWeakCherryUpCountHighOver") var weakCherryUpCountHighOver: Int = 0
-
-    func weakCherryUpSumFunc() {
-        weakCherryUpCountHighOver = weakCherryUpCountHigh + weakCherryUpCountSuperHigh
-    }
 
     // レア役からのCZ・AT当選率（設定差のあるものだけカウント）
     // 通常状態
@@ -66,7 +59,6 @@ class Ragnador: ObservableObject {
         weakCherryCount = 0
         weakCherryUpCountHigh = 0
         weakCherryUpCountSuperHigh = 0
-        weakCherryUpCountHighOver = 0
         rareCountNormalSuika = 0
         rareAtCountNormalSuika = 0
         rareCountNormalChance = 0
@@ -559,7 +551,6 @@ class RagnadorMemory1: ObservableObject {
     @AppStorage("ragnadorWeakCherryCountMemory1") var weakCherryCount: Int = 0
     @AppStorage("ragnadorWeakCherryUpCountHighMemory1") var weakCherryUpCountHigh: Int = 0
     @AppStorage("ragnadorWeakCherryUpCountSuperHighMemory1") var weakCherryUpCountSuperHigh: Int = 0
-    @AppStorage("ragnadorWeakCherryUpCountHighOverMemory1") var weakCherryUpCountHighOver: Int = 0
     @AppStorage("ragnadorRareCountNormalSuikaMemory1") var rareCountNormalSuika: Int = 0
     @AppStorage("ragnadorRareAtCountNormalSuikaMemory1") var rareAtCountNormalSuika: Int = 0
     @AppStorage("ragnadorRareCountNormalChanceMemory1") var rareCountNormalChance: Int = 0
@@ -612,7 +603,6 @@ class RagnadorMemory2: ObservableObject {
     @AppStorage("ragnadorWeakCherryCountMemory2") var weakCherryCount: Int = 0
     @AppStorage("ragnadorWeakCherryUpCountHighMemory2") var weakCherryUpCountHigh: Int = 0
     @AppStorage("ragnadorWeakCherryUpCountSuperHighMemory2") var weakCherryUpCountSuperHigh: Int = 0
-    @AppStorage("ragnadorWeakCherryUpCountHighOverMemory2") var weakCherryUpCountHighOver: Int = 0
     @AppStorage("ragnadorRareCountNormalSuikaMemory2") var rareCountNormalSuika: Int = 0
     @AppStorage("ragnadorRareAtCountNormalSuikaMemory2") var rareAtCountNormalSuika: Int = 0
     @AppStorage("ragnadorRareCountNormalChanceMemory2") var rareCountNormalChance: Int = 0
@@ -665,7 +655,6 @@ class RagnadorMemory3: ObservableObject {
     @AppStorage("ragnadorWeakCherryCountMemory3") var weakCherryCount: Int = 0
     @AppStorage("ragnadorWeakCherryUpCountHighMemory3") var weakCherryUpCountHigh: Int = 0
     @AppStorage("ragnadorWeakCherryUpCountSuperHighMemory3") var weakCherryUpCountSuperHigh: Int = 0
-    @AppStorage("ragnadorWeakCherryUpCountHighOverMemory3") var weakCherryUpCountHighOver: Int = 0
     @AppStorage("ragnadorRareCountNormalSuikaMemory3") var rareCountNormalSuika: Int = 0
     @AppStorage("ragnadorRareAtCountNormalSuikaMemory3") var rareAtCountNormalSuika: Int = 0
     @AppStorage("ragnadorRareCountNormalChanceMemory3") var rareCountNormalChance: Int = 0

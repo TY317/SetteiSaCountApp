@@ -14,20 +14,20 @@ struct ragnadorView95Ci: View {
 
     var body: some View {
         TabView(selection: self.$selection) {
-            // 弱🍒 高確以上への昇格率
+            // 弱🍒 高確への昇格率
             unitListSection95Ci(
                 grafTitle: "弱🍒 高確への昇格率",
                 titleFont: .title2,
                 grafView: AnyView(
                     unitChart95CiPercent(
-                        currentCount: $ragnador.weakCherryUpCountHighOver,
+                        currentCount: $ragnador.weakCherryUpCountHigh,
                         bigNumber: $ragnador.weakCherryCount,
-                        setting1Percent: ragnador.ratioWeakCherryUpHighOver[0],
-                        setting2Percent: ragnador.ratioWeakCherryUpHighOver[1],
-                        setting3Percent: ragnador.ratioWeakCherryUpHighOver[2],
-                        setting4Percent: ragnador.ratioWeakCherryUpHighOver[3],
-                        setting5Percent: ragnador.ratioWeakCherryUpHighOver[4],
-                        setting6Percent: ragnador.ratioWeakCherryUpHighOver[5]
+                        setting1Percent: ragnador.ratioWeakCherryUpHigh[0],
+                        setting2Percent: ragnador.ratioWeakCherryUpHigh[1],
+                        setting3Percent: ragnador.ratioWeakCherryUpHigh[2],
+                        setting4Percent: ragnador.ratioWeakCherryUpHigh[3],
+                        setting5Percent: ragnador.ratioWeakCherryUpHigh[4],
+                        setting6Percent: ragnador.ratioWeakCherryUpHigh[5]
                     )
                 )
             )

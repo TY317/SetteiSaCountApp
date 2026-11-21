@@ -195,7 +195,6 @@ struct ragnadorSubViewSaveMemory: View {
         ragnadorMemory1.weakCherryCount = ragnador.weakCherryCount
         ragnadorMemory1.weakCherryUpCountHigh = ragnador.weakCherryUpCountHigh
         ragnadorMemory1.weakCherryUpCountSuperHigh = ragnador.weakCherryUpCountSuperHigh
-        ragnadorMemory1.weakCherryUpCountHighOver = ragnador.weakCherryUpCountHighOver
         ragnadorMemory1.rareCountNormalSuika = ragnador.rareCountNormalSuika
         ragnadorMemory1.rareAtCountNormalSuika = ragnador.rareAtCountNormalSuika
         ragnadorMemory1.rareCountNormalChance = ragnador.rareCountNormalChance
@@ -244,7 +243,6 @@ struct ragnadorSubViewSaveMemory: View {
         ragnadorMemory2.weakCherryCount = ragnador.weakCherryCount
         ragnadorMemory2.weakCherryUpCountHigh = ragnador.weakCherryUpCountHigh
         ragnadorMemory2.weakCherryUpCountSuperHigh = ragnador.weakCherryUpCountSuperHigh
-        ragnadorMemory2.weakCherryUpCountHighOver = ragnador.weakCherryUpCountHighOver
         ragnadorMemory2.rareCountNormalSuika = ragnador.rareCountNormalSuika
         ragnadorMemory2.rareAtCountNormalSuika = ragnador.rareAtCountNormalSuika
         ragnadorMemory2.rareCountNormalChance = ragnador.rareCountNormalChance
@@ -293,7 +291,6 @@ struct ragnadorSubViewSaveMemory: View {
         ragnadorMemory3.weakCherryCount = ragnador.weakCherryCount
         ragnadorMemory3.weakCherryUpCountHigh = ragnador.weakCherryUpCountHigh
         ragnadorMemory3.weakCherryUpCountSuperHigh = ragnador.weakCherryUpCountSuperHigh
-        ragnadorMemory3.weakCherryUpCountHighOver = ragnador.weakCherryUpCountHighOver
         ragnadorMemory3.rareCountNormalSuika = ragnador.rareCountNormalSuika
         ragnadorMemory3.rareAtCountNormalSuika = ragnador.rareAtCountNormalSuika
         ragnadorMemory3.rareCountNormalChance = ragnador.rareCountNormalChance
@@ -371,7 +368,6 @@ struct ragnadorSubViewLoadMemory: View {
         ragnador.weakCherryCount = ragnadorMemory1.weakCherryCount
         ragnador.weakCherryUpCountHigh = ragnadorMemory1.weakCherryUpCountHigh
         ragnador.weakCherryUpCountSuperHigh = ragnadorMemory1.weakCherryUpCountSuperHigh
-        ragnador.weakCherryUpCountHighOver = ragnadorMemory1.weakCherryUpCountHighOver
         ragnador.rareCountNormalSuika = ragnadorMemory1.rareCountNormalSuika
         ragnador.rareAtCountNormalSuika = ragnadorMemory1.rareAtCountNormalSuika
         ragnador.rareCountNormalChance = ragnadorMemory1.rareCountNormalChance
@@ -424,7 +420,6 @@ struct ragnadorSubViewLoadMemory: View {
         ragnador.weakCherryCount = ragnadorMemory2.weakCherryCount
         ragnador.weakCherryUpCountHigh = ragnadorMemory2.weakCherryUpCountHigh
         ragnador.weakCherryUpCountSuperHigh = ragnadorMemory2.weakCherryUpCountSuperHigh
-        ragnador.weakCherryUpCountHighOver = ragnadorMemory2.weakCherryUpCountHighOver
         ragnador.rareCountNormalSuika = ragnadorMemory2.rareCountNormalSuika
         ragnador.rareAtCountNormalSuika = ragnadorMemory2.rareAtCountNormalSuika
         ragnador.rareCountNormalChance = ragnadorMemory2.rareCountNormalChance
@@ -477,7 +472,6 @@ struct ragnadorSubViewLoadMemory: View {
         ragnador.weakCherryCount = ragnadorMemory3.weakCherryCount
         ragnador.weakCherryUpCountHigh = ragnadorMemory3.weakCherryUpCountHigh
         ragnador.weakCherryUpCountSuperHigh = ragnadorMemory3.weakCherryUpCountSuperHigh
-        ragnador.weakCherryUpCountHighOver = ragnadorMemory3.weakCherryUpCountHighOver
         ragnador.rareCountNormalSuika = ragnadorMemory3.rareCountNormalSuika
         ragnador.rareAtCountNormalSuika = ragnadorMemory3.rareAtCountNormalSuika
         ragnador.rareCountNormalChance = ragnadorMemory3.rareCountNormalChance
